@@ -1,0 +1,8 @@
+.DS_Store
+
+# Node
+dist
+node_modules
+
+# Cordova
+testapp
