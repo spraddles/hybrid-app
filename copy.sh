@@ -3,7 +3,7 @@
 # remove Cordova temp dir:
 DIR="./my_test_app/www"
 if [ -d "$DIR" ]; then
-  # Take action if $DIR exists. #
+  # Take action if $DIR exists
   rm -r ./my_test_app/www
   echo "Removed Cordova compiled files"
 fi
