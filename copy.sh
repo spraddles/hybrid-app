@@ -1,14 +1,14 @@
 #!/usr/bin/env bash
 
 # remove Cordova temp dir:
-DIR="./my_test_app/www"
+DIR="./MY_TEST_APP/www"
 if [ -d "$DIR" ]; then
   # Take action if $DIR exists
-  rm -r ./my_test_app/www
+  rm -r $DIR
   echo "Removed Cordova compiled files"
 fi
 
 # replace with Vue compiled files:
-cp -r ./dist/. ./my_test_app/www
+cp -r ./dist/. $DIR
 
 echo Copied over build Vue compiled files... ready for Cordova build!!
