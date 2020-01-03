@@ -6,7 +6,7 @@
   "main": "src/main.js",
   "private": true,
   "scripts": {
-    "copy": "./src/helpers/cordova-prepare.sh",
+    "cordova-prepare": "./cordova-prepare.sh",
     "serve": "vue-cli-service serve",
     "npm-build": "vue-cli-service build",
     "webpack-develop": "webpack-dev-server --mode development",
