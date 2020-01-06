@@ -6,7 +6,6 @@
 #******************************
 
 # initials
-sudo -i
 yum update
 cd /
 cd root
