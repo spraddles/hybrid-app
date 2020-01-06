@@ -5,18 +5,7 @@
 #   INSTALL
 #******************************
 
-# OS dependencies
-npm
-cordova
-git
-iTSMTransporter
-
-
 # initials
-
-###### cmd > /dev/null #### hide output, show errors, show echo
-# show STDERR, hide STDOUT, show ECHO
-
 sudo -i
 yum update
 cd /
@@ -43,6 +32,9 @@ npm install -g cordova &> /dev/null
 echo 'Cordova installed'
 
 
+# iTSMTransporter
+# // TO DO
+
 
 #******************************
 #   CONFIG
@@ -58,9 +50,20 @@ cordova platform add android &> /dev/null
 
 
 
-# App dependencies
+#******************************
+#   BUILD
+#******************************
 
 
+
+
+
+
+
+
+#******************************
+#   DEPLOY
+#******************************
 
 
 
