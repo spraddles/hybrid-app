@@ -13,7 +13,7 @@ fi
 cp -r ./dist/. $DIR
 
 # copy build.json to Cordova dir
-cp ./src/helpers/build.json $DIR_ROOT
+cp ./_stuff/build.json $DIR_ROOT
 
 # echo
 echo Copied over build Vue compiled files
