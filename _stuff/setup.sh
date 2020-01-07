@@ -7,7 +7,7 @@
 
 # Yum updates
 yum update -y &> /dev/null
-echo 'Yum updates installed...'
+echo 'Yum updates done...'
 
 
 # NPM
@@ -37,9 +37,9 @@ echo 'Cordova installed...'
 
 # DIR setup
 cd / && cd root
-APPLICATIONS_BASE_DIR_NAME='applications'
+APPLICATIONS_BASE_DIR_NAME="applications"
 mkdir $APPLICATIONS_BASE_DIR_NAME
-APPLICATIONS_BASE_DIR='root/'$APPLICATIONS_BASE_DIR_NAME
+APPLICATIONS_BASE_DIR="root/"$APPLICATIONS_BASE_DIR_NAME
 cd / && cd $APPLICATIONS_BASE_DIR
 echo 'DIR setup done...'
 
