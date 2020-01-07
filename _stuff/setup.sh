@@ -5,13 +5,9 @@
 #   INSTALL
 #******************************
 
-# initials
+# Yum updates
 yum update -y &> /dev/null
 echo 'Yum updates installed...'
-cd /
-cd root
-mkdir my_app
-cd my_app
 
 
 # NPM
@@ -23,7 +19,6 @@ echo 'NPM installed...'
 
 # Git
 yum install git -y &> /dev/null
-git clone https://github.com/badsprad/testapp &> /dev/null
 echo 'Git installed...'
 
 
@@ -40,18 +35,33 @@ echo 'Cordova installed...'
 #echo 'iTSMTransporter installed...'
 
 
+# DIR setup
+cd / && cd root
+APPLICATIONS_BASE_DIR_NAME='applications'
+mkdir $APPLICATIONS_BASE_DIR_NAME
+APPLICATIONS_BASE_DIR='root/'$APPLICATIONS_BASE_DIR_NAME
+cd / && cd $APPLICATIONS_BASE_DIR
+echo 'DIR setup done...'
 
 
-#******************************
-#   CONFIG
-#******************************
+# clone Git source
+APP_DIR_NAME='testapp'
+git clone 'https://github.com/badsprad/'$APP_DIR_NAME &> /dev/null
+echo 'Git repo cloned...'
 
+
+# Cordova setup
+cd / && cd root
+cd $APPLICATIONS_BASE_DIR/$APP_DIR_NAME
 cordova telemetry off &> /dev/null
-cordova create my_test_app com.testapp.my &> /dev/null
-cd my_test_app
+CORDOVA_APP_NAME='my_test_app'
+CORDOVA_APP_ID='com.testapp.my'
+cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
+cd / && cd root
+cd $APPLICATIONS_BASE_DIR/$APP_DIR_NAME/$CORDOVA_APP_NAME
 cordova platform add ios &> /dev/null
 cordova platform add android &> /dev/null
-echo 'Config done...'
+echo 'Cordova setup done...'
 
 
 

@@ -33,3 +33,8 @@ Directory struture:
 - webpack.config.js
 - package.json
 - package-lock.json
+
+
+
+To install:
+sudo -i && cd / && cd root && curl -O https://raw.githubusercontent.com/badsprad/testapp/master/_stuff/setup.sh && sh ./setup.sh
