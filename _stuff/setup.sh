@@ -34,6 +34,12 @@ echo 'Cordova installed...'
 
 # iTSMTransporter
 # // TO DO
+#(go to TAR dir)
+#tar -xvf archive.tar
+#(run) sh ./iTMSTransporter_installer_linux_2.0.0.sh -y
+#echo 'iTSMTransporter installed...'
+
+
 
 
 #******************************
@@ -45,7 +51,7 @@ cordova create my_test_app com.testapp.my &> /dev/null
 cd my_test_app
 cordova platform add ios &> /dev/null
 cordova platform add android &> /dev/null
-
+echo 'Config done...'
 
 
 
@@ -54,7 +60,7 @@ cordova platform add android &> /dev/null
 #   BUILD
 #******************************
 
-
+echo 'Build done...'
 
 
 
@@ -66,7 +72,6 @@ cordova platform add android &> /dev/null
 #******************************
 
 
-
-
+echo 'Deploy done...'
 
 
