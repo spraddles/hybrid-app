@@ -56,7 +56,14 @@ cd $APPLICATIONS_BASE_DIR_NAME"/"$APP_DIR_NAME
 cordova telemetry off &> /dev/null
 CORDOVA_APP_NAME='my_test_app'
 CORDOVA_APP_ID='com.testapp.my'
-## MORE HERE
+
+cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
+
+cd / && cd root
+cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
+cordova platform add ios &> /dev/null
+cordova platform add android &> /dev/null
+echo 'Cordova setup done...'
 
 
 
