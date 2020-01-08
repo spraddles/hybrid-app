@@ -39,7 +39,7 @@ echo 'Cordova installed...'
 cd / && cd root
 APPLICATIONS_BASE_DIR_NAME="applications"
 mkdir $APPLICATIONS_BASE_DIR_NAME
-APPLICATIONS_BASE_DIR="root/"$APPLICATIONS_BASE_DIR_NAME
+APPLICATIONS_BASE_DIR=root"/"$APPLICATIONS_BASE_DIR_NAME
 cd / && cd $APPLICATIONS_BASE_DIR
 echo 'DIR setup done...'
 
@@ -52,7 +52,7 @@ echo 'Git repo cloned...'
 
 # Cordova setup
 cd / && cd root
-cd $APPLICATIONS_BASE_DIR_NAME/$APP_DIR_NAME
+cd $APPLICATIONS_BASE_DIR_NAME"/"$APP_DIR_NAME
 cordova telemetry off &> /dev/null
 CORDOVA_APP_NAME='my_test_app'
 CORDOVA_APP_ID='com.testapp.my'
