@@ -30,14 +30,6 @@ npm install -g cordova &> /dev/null
 echo 'Cordova installed...'
 
 
-# iTSMTransporter
-# // TO DO
-#(go to TAR dir)
-#tar -xvf archive.tar
-#(run) sh ./iTMSTransporter_installer_linux_2.0.0.sh -y
-#echo 'iTSMTransporter installed...'
-
-
 # DIR setup
 cd / && cd root
 APPLICATIONS_BASE_DIR_NAME="applications"
@@ -63,6 +55,21 @@ cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
 cordova platform add ios &> /dev/null
 cordova platform add android &> /dev/null
 echo 'Cordova setup done...'
+
+
+# iTSMTransporter
+# ref: https://github.com/fastlane/fastlane/pull/11268
+# ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_stuff
+tar -xvf archive.tar
+sh iTMSTransporter_installer_linux_2.0.0.sh --target itms --noexec
+rm -f iTMSTransporter_installer_linux_2.0.0.sh
+cd itms
+sed -e '15,43d' -i install_script.sh
+yes | sh ./install_script.sh
+echo 'iTSMTransporter installed...'
+
+
 
 
 
