@@ -50,8 +50,13 @@ git clone 'https://github.com/badsprad/'$APP_DIR_NAME &> /dev/null
 echo 'Git repo cloned...'
 
 
-
-
+# Cordova setup
+cd / && cd root
+cd $APPLICATIONS_BASE_DIR_NAME/$APP_DIR_NAME
+cordova telemetry off &> /dev/null
+CORDOVA_APP_NAME='my_test_app'
+CORDOVA_APP_ID='com.testapp.my'
+## MORE HERE
 
 
 
