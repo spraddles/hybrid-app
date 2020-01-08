@@ -55,7 +55,7 @@ echo 'Cordova setup:'
 echo $PWD
 cd / && cd root
 echo $PWD
-cd $APPLICATIONS_BASE_DIR_NAME"/"$APP_DIR_NAME
+cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 echo $PWD
 cordova telemetry off &> /dev/null
 CORDOVA_APP_NAME="my_test_app"
