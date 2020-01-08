@@ -53,7 +53,7 @@ echo 'Git repo cloned...'
 # Cordova setup
 echo 'Cordova setup:'
 echo $PWD
-cd / && cd root
+cd /
 echo $PWD
 cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 echo $PWD
@@ -65,7 +65,7 @@ echo $CORDOVA_APP_ID
 cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
 
 echo $PWD
-cd / && cd root
+cd /
 echo $PWD
 cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
 echo $PWD
