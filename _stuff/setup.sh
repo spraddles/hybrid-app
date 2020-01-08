@@ -5,6 +5,9 @@
 #   INSTALL
 #******************************
 
+echo 'Starting install...'
+
+
 # Yum updates
 yum update -y &> /dev/null
 echo 'Yum updates done...'
@@ -51,24 +54,12 @@ echo 'Git repo cloned...'
 
 
 # Cordova setup
-echo 'Cordova setup:'
-echo $PWD
-cd /
-echo $PWD
-cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-echo $PWD
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 cordova telemetry off &> /dev/null
 CORDOVA_APP_NAME="my_test_app"
-echo $CORDOVA_APP_NAME
 CORDOVA_APP_ID="com.testapp.my"
-echo $CORDOVA_APP_ID
 cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
-
-echo $PWD
-cd /
-echo $PWD
-cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
-echo $PWD
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
 cordova platform add ios &> /dev/null
 cordova platform add android &> /dev/null
 echo 'Cordova setup done...'
