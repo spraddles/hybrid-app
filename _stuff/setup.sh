@@ -57,7 +57,7 @@ cordova platform add android &> /dev/null
 echo 'Cordova setup done...'
 
 
-# iTSMTransporter
+# iTSMTransporter setup
 # ref: https://github.com/fastlane/fastlane/pull/11268
 # ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_stuff
