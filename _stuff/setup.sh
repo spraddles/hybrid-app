@@ -5,6 +5,7 @@
 #   INSTALL
 #******************************
 
+clear
 echo 'Starting install...'
 
 
@@ -73,13 +74,14 @@ cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
 cordova platform add ios &> /dev/null
 cordova platform add android &> /dev/null
-echo 'Cordova setup done...'
+echo 'Cordova config done...'
 
 
 # NPM setup
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-npm install
-npm audit fix
+npm install &> /dev/null
+npm audit fix &> /dev/null
+echo 'NPM config done...'
 
 
 
@@ -88,13 +90,18 @@ npm audit fix
 #******************************
 
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-npm run webpack-build
-#chmod +x ./cordova-prepare.sh
-#sh ./cordova-prepare.sh
+npm run webpack-build &> /dev/null
 
-echo 'Build done...'
+# CHECKING...
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_stuff
 
 
+
+echo 'Vue build done...'
+
+
+
+echo 'Cordova build done...'
 
 
 
