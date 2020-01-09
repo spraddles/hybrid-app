@@ -45,19 +45,7 @@ git clone 'https://github.com/badsprad/'$APP_DIR_NAME &> /dev/null
 echo 'Git repo cloned...'
 
 
-# Cordova setup
-cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-cordova telemetry off &> /dev/null
-CORDOVA_APP_NAME="my_test_app"
-CORDOVA_APP_ID="com.testapp.my"
-cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
-cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
-cordova platform add ios &> /dev/null
-cordova platform add android &> /dev/null
-echo 'Cordova setup done...'
-
-
-# iTSMTransporter setup
+# iTSMTransporter install
 # ref: https://github.com/fastlane/fastlane/pull/11268
 # ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_stuff
@@ -71,11 +59,38 @@ echo 'iTSMTransporter installed...'
 
 
 
+#******************************
+#   CONFIG
+#******************************
+
+
+# Cordova setup
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+cordova telemetry off &> /dev/null
+CORDOVA_APP_NAME="my_test_app"
+CORDOVA_APP_ID="com.testapp.my"
+cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
+cordova platform add ios &> /dev/null
+cordova platform add android &> /dev/null
+echo 'Cordova setup done...'
+
+
+# NPM setup
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+npm install
+npm audit fix
+
 
 
 #******************************
 #   BUILD
 #******************************
+
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+npm run webpack-build
+#chmod +x ./cordova-prepare.sh
+#sh ./cordova-prepare.sh
 
 echo 'Build done...'
 
