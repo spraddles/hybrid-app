@@ -50,12 +50,12 @@ echo 'Git repo cloned...'
 # ref: https://github.com/fastlane/fastlane/pull/11268
 # ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_stuff
-tar -xvf archive.tar
-sh iTMSTransporter_installer_linux_2.0.0.sh --target itms --noexec
-rm -f iTMSTransporter_installer_linux_2.0.0.sh
+tar -xvf archive.tar &> /dev/null
+sh iTMSTransporter_installer_linux_2.0.0.sh --target itms --noexec &> /dev/null
+rm -f iTMSTransporter_installer_linux_2.0.0.sh &> /dev/null
 cd itms
-sed -e '15,43d' -i install_script.sh
-yes | sh ./install_script.sh
+sed -e '15,43d' -i install_script.sh &> /dev/null
+yes | sh ./install_script.sh &> /dev/null
 echo 'iTSMTransporter installed...'
 
 
