@@ -101,8 +101,8 @@ echo 'Vue build done...'
 # Cordova prepare
 CORDOVA_WWW_DIR=$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME"/"www
 cd $CORDOVA_WWW_DIR
-if [ -d "$CORDOVA_WWW_DIR" ]; then
-  rm -r $CORDOVA_WWW_DIR
+if [ -d www ]; then
+  rm -rf www
 fi
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 cp -r ./dist/. $CORDOVA_WWW_DIR
