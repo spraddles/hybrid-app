@@ -102,15 +102,16 @@ echo 'Vue build done...'
 echo '1' $PWD
 CORDOVA_WWW_DIR=$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME"/"www
 echo '2' $CORDOVA_WWW_DIR
-cd $CORDOVA_WWW_DIR
+cd / && cd $CORDOVA_WWW_DIR
 echo '3' $PWD
 if [ -d www ]; then
   rm -rf www
 fi
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 echo '4' $PWD
-cp -r ./dist/. $CORDOVA_WWW_DIR
-cp ./_stuff/build.json $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/"
+cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME"/"www"/"
+cp ./_stuff/build.json ."/"$CORDOVA_APP_NAME
 echo 'Cordova prepare done...'
 
 
