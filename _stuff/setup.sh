@@ -68,12 +68,16 @@ echo 'iTSMTransporter installed...'
 echo '  --- CONFIG ---'
 
 # Cordova setup
+echo 'A' $PWD
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 cordova telemetry off &> /dev/null
 CORDOVA_APP_NAME="my_test_app"
 CORDOVA_APP_ID="com.testapp.my"
+echo 'B' $PWD
 cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
+echo 'C' $PWD
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
+echo 'D' $PWD
 cordova platform add ios &> /dev/null
 cordova platform add android &> /dev/null
 echo 'Cordova config done...'
