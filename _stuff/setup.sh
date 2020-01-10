@@ -67,23 +67,19 @@ echo 'iTSMTransporter installed...'
 
 echo '  --- CONFIG ---'
 
-# Cordova setup
-echo 'A' $PWD
+# Cordova config
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 cordova telemetry off &> /dev/null
 CORDOVA_APP_NAME="my_test_app"
 CORDOVA_APP_ID="com.testapp.my"
-echo 'B' $PWD
 cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
-echo 'C' $PWD
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
-echo 'D' $PWD
 cordova platform add ios &> /dev/null
 cordova platform add android &> /dev/null
 echo 'Cordova config done...'
 
 
-# NPM setup
+# NPM config
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 npm install &> /dev/null
 npm audit fix &> /dev/null
@@ -103,19 +99,14 @@ npm run webpack-build &> /dev/null
 echo 'Vue build done...'
 
 # Cordova prepare
-echo '1' $PWD
 CORDOVA_WWW_DIR=$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME"/"www
-echo '2' $CORDOVA_WWW_DIR
 cd / && cd $CORDOVA_WWW_DIR
-echo '3' $PWD
 if [ -d www ]; then
   rm -rf www
 fi
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-echo '4' $PWD
 cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/"
-cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME"/"www"/"
-cp ./_stuff/build.json ."/"$CORDOVA_APP_NAME
+cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME
 echo 'Cordova prepare done...'
 
 
@@ -123,6 +114,15 @@ echo 'Cordova prepare done...'
 
 
 echo 'Cordova build done...'
+
+
+
+
+#******************************
+#   CLEANUP
+#******************************
+
+# remove setup.sh file & others
 
 
 
