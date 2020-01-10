@@ -6,6 +6,7 @@
 #******************************
 
 clear
+echo '--- INSTALL ---'
 echo 'Starting install...'
 
 
@@ -64,6 +65,7 @@ echo 'iTSMTransporter installed...'
 #   CONFIG
 #******************************
 
+echo '--- CONFIG ---'
 
 # Cordova setup
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
@@ -89,15 +91,25 @@ echo 'NPM config done...'
 #   BUILD
 #******************************
 
+echo '--- BUILD ---'
+
+# Vue build
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 npm run webpack-build &> /dev/null
-
-# CHECKING...
-cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_stuff
-
-
-
 echo 'Vue build done...'
+
+# Cordova prepare
+CORDOVA_WWW_DIR=$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"www
+cd $CORDOVA_WWW_DIR
+if [ -d "$CORDOVA_WWW_DIR" ]; then
+  rm -r $CORDOVA_WWW_DIR
+fi
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+cp -r ./dist/. $CORDOVA_WWW_DIR
+cp ./_stuff/build.json $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+echo 'Cordova prepare done...'
+
+
 
 
 
@@ -110,6 +122,7 @@ echo 'Cordova build done...'
 #   DEPLOY
 #******************************
 
+echo '--- DEPLOY ---'
 
 echo 'Deploy done...'
 
