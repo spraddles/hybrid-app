@@ -99,12 +99,16 @@ npm run webpack-build &> /dev/null
 echo 'Vue build done...'
 
 # Cordova prepare
+echo '1' $PWD
 CORDOVA_WWW_DIR=$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME"/"www
+echo '2' $CORDOVA_WWW_DIR
 cd $CORDOVA_WWW_DIR
+echo '3' $PWD
 if [ -d www ]; then
   rm -rf www
 fi
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+echo '4' $PWD
 cp -r ./dist/. $CORDOVA_WWW_DIR
 cp ./_stuff/build.json $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 echo 'Cordova prepare done...'
