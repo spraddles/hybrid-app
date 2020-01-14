@@ -3,6 +3,9 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
   entry: './src/main.js',
+  output: {
+    path: __dirname + '/dist'
+  },
   module: {
     rules: [
       { test: /\.js$/, use: 'babel-loader' },
@@ -13,7 +16,7 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: './src/public/index.html',
-      favicon: './src/public/favicon.ico'
+      favicon: './src/public/favicon.ico',
     }),
     new VueLoaderPlugin(),
   ]

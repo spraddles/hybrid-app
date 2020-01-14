@@ -105,14 +105,13 @@ if [ -d www ]; then
   rm -rf www
 fi
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/"
-cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME
+cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/" &> /dev/null
+cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
 echo 'Cordova prepare done...'
 
-
-
-
-
+# Cordova build
+cordova build ios
+cordova build android
 echo 'Cordova build done...'
 
 

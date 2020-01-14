@@ -31,8 +31,7 @@ var app = new Vue({
     el: '#app',
     render: h => h(App),
     data: {
-        status: false,
-        message: 'Hello Vue!'
+        status: false
     },
     // cordova init
     methods:{
