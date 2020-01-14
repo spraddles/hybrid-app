@@ -5,7 +5,7 @@
 LINE_MD=$(awk '/md/{print NR}' ./main.vue)
 LINE_IOS=$(awk '/ios/{print NR}' ./main.vue)
 
-# sh ./theme-switcher ios
+# sh ./theme-switcher [ios / md]
 if [[ -n "$1" ]]
 then
 	# text = MD

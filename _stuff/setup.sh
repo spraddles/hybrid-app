@@ -6,7 +6,7 @@
 #******************************
 
 clear
-echo '  --- INSTALL ---'
+echo ' --- INSTALL ---'
 echo 'Starting install...'
 
 
@@ -65,7 +65,7 @@ echo 'iTSMTransporter installed...'
 #   CONFIG
 #******************************
 
-echo '  --- CONFIG ---'
+echo ' --- CONFIG ---'
 
 # Cordova config
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
@@ -91,7 +91,7 @@ echo 'NPM config done...'
 #   BUILD
 #******************************
 
-echo '  --- BUILD ---'
+echo ' --- BUILD ---'
 
 # Vue build
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
@@ -104,15 +104,23 @@ cd / && cd $CORDOVA_WWW_DIR
 if [ -d www ]; then
   rm -rf www
 fi
+echo '1' $PWD
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+echo '2' $PWD
 cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/" &> /dev/null
+echo '3' $PWD
 cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
+echo '4' $PWD
 echo 'Cordova prepare done...'
+echo '5' $PWD
 
 # Cordova build
 cordova build ios
+echo '6' $PWD
 cordova build android
+echo '7' $PWD
 echo 'Cordova build done...'
+echo '8' $PWD
 
 
 
@@ -120,6 +128,9 @@ echo 'Cordova build done...'
 #******************************
 #   CLEANUP
 #******************************
+
+echo ' --- CLEAN UP ---'
+echo 'Clean up done...'
 
 # remove setup.sh file & others
 
@@ -130,8 +141,7 @@ echo 'Cordova build done...'
 #   DEPLOY
 #******************************
 
-echo '  --- DEPLOY ---'
-
+echo ' --- DEPLOY ---'
 echo 'Deploy done...'
 
 
