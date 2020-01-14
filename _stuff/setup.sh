@@ -9,11 +9,9 @@ clear
 echo ' --- INSTALL ---'
 echo 'Starting install...'
 
-
 # Yum updates
 yum update -y &> /dev/null
 echo 'Yum updates done...'
-
 
 # NPM
 yum install -y gcc-c++ make &> /dev/null
@@ -21,16 +19,13 @@ curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash - &> /dev/null
 sudo yum install -y nodejs &> /dev/null
 echo 'NPM installed...'
 
-
 # Git
 yum install git -y &> /dev/null
 echo 'Git installed...'
 
-
 # Cordova
 npm install -g cordova &> /dev/null
 echo 'Cordova installed...'
-
 
 # DIR setup
 cd / && cd root
@@ -40,12 +35,10 @@ APPLICATIONS_BASE_DIR=root"/"$APPLICATIONS_BASE_DIR_NAME
 cd / && cd $APPLICATIONS_BASE_DIR
 echo 'DIR setup done...'
 
-
 # clone Git source
 APP_DIR_NAME='testapp'
 git clone 'https://github.com/badsprad/'$APP_DIR_NAME &> /dev/null
 echo 'Git repo cloned...'
-
 
 # iTSMTransporter install
 # ref: https://github.com/fastlane/fastlane/pull/11268
@@ -78,7 +71,6 @@ cordova platform add ios &> /dev/null
 cordova platform add android &> /dev/null
 echo 'Cordova config done...'
 
-
 # NPM config
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 npm install &> /dev/null
@@ -99,29 +91,33 @@ npm run webpack-build &> /dev/null
 echo 'Vue build done...'
 
 # Cordova prepare
-CORDOVA_WWW_DIR=$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME"/"www
+CORDOVA_DIR=$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
+echo '1' $PWD
+CORDOVA_WWW_DIR=$CORDOVA_DIR"/"www
+echo '2' $PWD
 cd / && cd $CORDOVA_WWW_DIR
 if [ -d www ]; then
   rm -rf www
 fi
-echo '1' $PWD
-cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-echo '2' $PWD
-cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/" &> /dev/null
 echo '3' $PWD
-cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 echo '4' $PWD
-echo 'Cordova prepare done...'
+cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/" &> /dev/null
 echo '5' $PWD
+cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
+echo '6' $PWD
+echo 'Cordova prepare done...'
+echo '7' $PWD
 
 # Cordova build
-cordova build ios
-echo '6' $PWD
-cordova build android
-echo '7' $PWD
-echo 'Cordova build done...'
+cd / && cd $CORDOVA_DIR
 echo '8' $PWD
-
+cordova build ios
+echo '9' $PWD
+cordova build android
+echo '10' $PWD
+echo 'Cordova build done...'
+echo '11' $PWD
 
 
 
