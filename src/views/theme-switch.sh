@@ -9,12 +9,12 @@ LINE_IOS=$(awk '/ios/{print NR}' ./main.vue)
 if [[ -n "$1" ]] && [[ $1 = "ios" ]] && [[ $LINE_MD = 3 ]]
 then
 	# change to IOS
-	sed -i '' -e "3s/md/ios/" main.vue
+	sed -i -e "3s/md/ios/" main.vue
 fi
 
 # sh ./theme-switcher md
 if [[ -n "$1" ]] && [[ $1 = "md" ]] && [[ $LINE_IOS = 3 ]]
 then
 	# change to MD
-	sed -i '' -e "3s/ios/md/" main.vue
+	sed -i -e "3s/ios/md/" main.vue
 fi
