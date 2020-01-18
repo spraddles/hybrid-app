@@ -112,9 +112,9 @@ echo '7' $PWD
 # Cordova build
 cd / && cd $CORDOVA_DIR
 echo '8' $PWD
-cordova build ios
+cordova build ios &> /dev/null
 echo '9' $PWD
-cordova build android
+cordova build android &> /dev/null
 echo '10' $PWD
 echo 'Cordova build done...'
 echo '11' $PWD
