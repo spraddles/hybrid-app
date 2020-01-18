@@ -137,6 +137,8 @@ echo 'Clean up done...'
 #   DEPLOY
 #******************************
 
+# to each respective app store (iOS / Android)
+
 echo ' --- DEPLOY ---'
 echo 'Deploy done...'
 
