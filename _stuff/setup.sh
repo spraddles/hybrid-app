@@ -27,6 +27,10 @@ echo 'Git installed...'
 npm install -g cordova &> /dev/null
 echo 'Cordova installed...'
 
+# Phonegap
+npm install -g phonegap &> /dev/null
+echo 'Phonegap installed...'
+
 # DIR setup
 cd / && cd root
 APPLICATIONS_BASE_DIR_NAME="applications"
@@ -109,15 +113,19 @@ echo '6' $PWD
 echo 'Cordova prepare done...'
 echo '7' $PWD
 
-# Cordova build
-cd / && cd $CORDOVA_DIR
-echo '8' $PWD
-cordova build ios &> /dev/null
-echo '9' $PWD
-cordova build android &> /dev/null
-echo '10' $PWD
-echo 'Cordova build done...'
-echo '11' $PWD
+# Phonegap build
+phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 &> /dev/null
+phonegap remote run ios > capture.txt &> /dev/null
+PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture.txt)"
+wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa &> /dev/null
+
+#### now we have IPA file! continue to ITSMT
+
+
+
+
+
+
 
 
 
@@ -128,7 +136,13 @@ echo '11' $PWD
 echo ' --- CLEAN UP ---'
 echo 'Clean up done...'
 
-# remove setup.sh file & others
+# LOGOUT OF SESSIONS:
+# phonegap remote logout
+
+# FILES TO REMOVE:
+# setup.sh
+# capture.txt
+# certs
 
 
 
