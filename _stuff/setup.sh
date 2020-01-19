@@ -9,26 +9,27 @@ clear
 echo ' --- INSTALL ---'
 echo 'Starting install...'
 
-# Yum updates
-yum update -y &> /dev/null
+# RHEL updates
+sudo yum update -y &> /dev/null
+sudo yum install zip -y &> /dev/null
 echo 'Yum updates done...'
 
 # NPM
 yum install -y gcc-c++ make &> /dev/null
 curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash - &> /dev/null
 sudo yum install -y nodejs &> /dev/null
-echo 'NPM installed...'
+echo 'NodeJS installed...'
 
 # Git
-yum install git -y &> /dev/null
+sudo yum install git -y &> /dev/null
 echo 'Git installed...'
 
 # Cordova
-npm install -g cordova &> /dev/null
+sudo npm install -g cordova &> /dev/null
 echo 'Cordova installed...'
 
 # Phonegap
-npm install -g phonegap &> /dev/null
+sudo npm install -g phonegap &> /dev/null
 echo 'Phonegap installed...'
 
 # DIR setup
@@ -81,6 +82,11 @@ npm install &> /dev/null
 npm audit fix &> /dev/null
 echo 'NPM config done...'
 
+# Node file patch
+cd / && cd usr/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
+sudo rm zip.js
+curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
+echo 'Node file patched...'
 
 
 #******************************
@@ -108,11 +114,13 @@ cd / && cd $CORDOVA_DIR
 cordova prepare ios
 echo 'Cordova prepare done...'
 
-# Phonegap build
-phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83
+# Phonegap cloud build
+phonegap analytics off &> /dev/null
+phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 &> /dev/null
 phonegap remote run ios > capture.txt
-PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture.txt)"
-wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
+PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture.txt)" &> /dev/null
+wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa &> /dev/null
+echo 'Phonegap cloud build done...'
 
 #### now we have IPA file! continue to ITSMT
 
