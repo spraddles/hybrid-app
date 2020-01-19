@@ -85,7 +85,7 @@ echo 'NPM config done...'
 # Node file patch
 cd / && cd usr/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
 sudo rm zip.js
-curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
+curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js &> /dev/null
 echo 'Node file patched...'
 
 
@@ -115,11 +115,13 @@ cordova prepare ios
 echo 'Cordova prepare done...'
 
 # Phonegap cloud build
+echo '1' $PWD
 phonegap analytics off &> /dev/null
 phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 &> /dev/null
 phonegap remote run ios > capture.txt
-PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture.txt)" &> /dev/null
-wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa &> /dev/null
+PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture.txt)"
+wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
+echo '2' $PWD
 echo 'Phonegap cloud build done...'
 
 #### now we have IPA file! continue to ITSMT
