@@ -96,31 +96,23 @@ echo 'Vue build done...'
 
 # Cordova prepare
 CORDOVA_DIR=$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
-echo '1' $PWD
 CORDOVA_WWW_DIR=$CORDOVA_DIR"/"www
-echo '2' $PWD
 cd / && cd $CORDOVA_WWW_DIR
 if [ -d www ]; then
   rm -rf www
 fi
-echo '3' $PWD
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-echo '4' $PWD
 cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/" &> /dev/null
-echo '5' $PWD
 cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
-echo '6' $PWD
 cd / && cd $CORDOVA_DIR
-echo '7' $PWD
 cordova prepare ios
 echo 'Cordova prepare done...'
 
-
 # Phonegap build
-#phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 &> /dev/null
-#phonegap remote run ios > capture.txt &> /dev/null
-#PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture.txt)"
-#wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa &> /dev/null
+phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83
+phonegap remote run ios > capture.txt
+PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture.txt)"
+wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
 
 #### now we have IPA file! continue to ITSMT
 
