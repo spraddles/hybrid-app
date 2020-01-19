@@ -110,9 +110,11 @@ cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/" &> /dev/null
 echo '5' $PWD
 cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
 echo '6' $PWD
+cd / && cd $CORDOVA_DIR
+echo '7' $PWD
 cordova prepare ios
 echo 'Cordova prepare done...'
-echo '7' $PWD
+
 
 # Phonegap build
 #phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 &> /dev/null
