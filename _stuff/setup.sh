@@ -6,12 +6,14 @@
 #/******************************
 
 clear
+echo ''
 echo ' --- INSTALL ---'
 echo 'Starting install...'
 
 # RHEL updates
 #..............................
 sudo yum update -y &> /dev/null
+sudo yum install java-1.8.0-openjdk -y &> /dev/null
 sudo yum install zip -y &> /dev/null
 sudo yum install jq -y &> /dev/null
 sudo yum install wget -y &> /dev/null
@@ -56,23 +58,27 @@ echo 'Git repo cloned...'
 
 # iTSMTransporter
 #..............................
-# ref: https://github.com/fastlane/fastlane/pull/11268
-# ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_stuff
 tar -xvf archive.tar &> /dev/null
 sh iTMSTransporter_installer_linux_2.0.0.sh --target itms --noexec &> /dev/null
 rm -f iTMSTransporter_installer_linux_2.0.0.sh &> /dev/null
 cd itms
+# iTSMT workaround
+# ref: https://github.com/fastlane/fastlane/pull/11268
+# ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
 sed -e '15,43d' -i install_script.sh &> /dev/null
 yes | sh ./install_script.sh &> /dev/null
 echo 'iTSMTransporter installed...'
 
+
+App specific password: wctd-rwjf-azow-wlcl
 
 
 #/******************************
 #   CONFIG
 #/******************************
 
+echo ''
 echo ' --- CONFIG ---'
 
 # Cordova config
@@ -107,6 +113,7 @@ echo 'Node file patched...'
 #   BUILD
 #/******************************
 
+echo ''
 echo ' --- BUILD ---'
 
 # Vue build
@@ -164,6 +171,7 @@ echo 'Phonegap cloud build done...'
 #   CLEANUP
 #/******************************
 
+echo ''
 echo ' --- CLEAN UP ---'
 echo 'Clean up done...'
 
@@ -185,7 +193,28 @@ echo 'Clean up done...'
 
 # to each respective app store (iOS / Android)
 
+echo ''
 echo ' --- DEPLOY ---'
+
+
+
+#cd / && cd /usr/local/itms/bin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 echo 'Deploy done...'
 
 
