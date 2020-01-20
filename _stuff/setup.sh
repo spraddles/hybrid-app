@@ -71,7 +71,7 @@ yes | sh ./install_script.sh &> /dev/null
 echo 'iTSMTransporter installed...'
 
 
-App specific password: wctd-rwjf-azow-wlcl
+
 
 
 #/******************************
