@@ -14,6 +14,7 @@ echo 'Starting install...'
 sudo yum update -y &> /dev/null
 sudo yum install zip -y &> /dev/null
 sudo yum install jq -y &> /dev/null
+sudo yum install wget -y
 echo 'Yum updates done...'
 
 # NPM
