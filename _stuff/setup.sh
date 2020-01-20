@@ -10,7 +10,7 @@ echo ''
 echo ' --- INSTALL ---'
 echo 'Starting install...'
 
-# RHEL updates
+# System updates
 #..............................
 sudo yum update -y &> /dev/null
 sudo yum install java-1.8.0-openjdk -y &> /dev/null
@@ -149,7 +149,7 @@ if [[ $CORDOVA_APP_ID > 0 ]]
 then 
     # fix ref: https://github.com/phonegap/phonegap-cli/issues/122
     rm -f root/applications/testapp/my_test_app/.cordova/config.json
-    curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN
+    curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN &> /dev/null
 fi
 # download iTunes IPA file
 phonegap remote run ios > capture_url.txt
