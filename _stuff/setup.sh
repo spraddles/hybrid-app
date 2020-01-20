@@ -119,6 +119,15 @@ echo 'Cordova prepare done...'
 echo '1' $PWD
 phonegap analytics off &> /dev/null
 phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 &> /dev/null
+CORDOVA_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdXRoIiwiaXNzIjoicGdiIiwianRpIjoiNGFmODlhNjctNzBmNC00ZjJmLTkxNjgtMTQ0ZDFiZTQyMmJiIn0.PO1cFMwAYV49CaYxkT5y9khJ1DExvGg1EYHRupA80L0
+CORDOVA_APP_ID="$(curl https://build.phonegap.com/api/v1/apps?auth_token=$CORDOVA_TOKEN 2>/dev/null | jq -r '.apps[].id')"
+if [[ $CORDOVA_APP_ID > 0 ]]
+then 
+    echo "Greater Than Zero"
+    # fix ref: https://github.com/phonegap/phonegap-cli/issues/122
+    rm -f root/applications/testapp/my_test_app/.cordova/config.json
+    curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN
+fi
 phonegap remote run ios > capture_url.txt
 PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
 wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
