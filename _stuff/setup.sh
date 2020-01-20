@@ -12,6 +12,7 @@ echo 'Starting install...'
 # RHEL updates
 sudo yum update -y &> /dev/null
 sudo yum install zip -y &> /dev/null
+sudo yum install jq -y &> /dev/null
 echo 'Yum updates done...'
 
 # NPM
@@ -118,8 +119,8 @@ echo 'Cordova prepare done...'
 echo '1' $PWD
 phonegap analytics off &> /dev/null
 phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 &> /dev/null
-phonegap remote run ios > capture.txt
-PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture.txt)"
+phonegap remote run ios > capture_url.txt
+PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
 wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
 echo '2' $PWD
 echo 'Phonegap cloud build done...'
@@ -146,7 +147,7 @@ echo 'Clean up done...'
 
 # FILES TO REMOVE:
 # setup.sh
-# capture.txt
+# capture_url.txt
 # certs
 
 
