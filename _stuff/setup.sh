@@ -1,9 +1,9 @@
 #!/usr/bin/env bash
 
 
-#******************************
+#/******************************
 #   INSTALL
-#******************************
+#/******************************
 
 clear
 echo ' --- INSTALL ---'
@@ -14,7 +14,7 @@ echo 'Starting install...'
 sudo yum update -y &> /dev/null
 sudo yum install zip -y &> /dev/null
 sudo yum install jq -y &> /dev/null
-sudo yum install wget -y
+sudo yum install wget -y &> /dev/null
 echo 'Yum updates done...'
 
 # NPM
@@ -69,9 +69,9 @@ echo 'iTSMTransporter installed...'
 
 
 
-#******************************
+#/******************************
 #   CONFIG
-#******************************
+#/******************************
 
 echo ' --- CONFIG ---'
 
@@ -103,9 +103,9 @@ curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb02
 echo 'Node file patched...'
 
 
-#******************************
+#/******************************
 #   BUILD
-#******************************
+#/******************************
 
 echo ' --- BUILD ---'
 
@@ -138,22 +138,16 @@ phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 
 # check if an app exists, if so remove
 CORDOVA_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdXRoIiwiaXNzIjoicGdiIiwianRpIjoiNGFmODlhNjctNzBmNC00ZjJmLTkxNjgtMTQ0ZDFiZTQyMmJiIn0.PO1cFMwAYV49CaYxkT5y9khJ1DExvGg1EYHRupA80L0
 CORDOVA_APP_ID="$(curl https://build.phonegap.com/api/v1/apps?auth_token=$CORDOVA_TOKEN 2>/dev/null | jq -r '.apps[].id')"
-echo 'Note 1: ' $CORDOVA_APP_ID
 if [[ $CORDOVA_APP_ID > 0 ]]
 then 
-    echo "Greater Than Zero"
     # fix ref: https://github.com/phonegap/phonegap-cli/issues/122
     rm -f root/applications/testapp/my_test_app/.cordova/config.json
     curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN
-else 
-    echo "Note 2: Equals Zero"
 fi
 # download iTunes IPA file
 phonegap remote run ios > capture_url.txt
 PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
-echo $PGB_URL
-wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
-echo 'Note 3: ' $PWD
+wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa &> /dev/null
 echo 'Phonegap cloud build done...'
 
 #### now we have IPA file! continue to ITSMT
@@ -166,9 +160,9 @@ echo 'Phonegap cloud build done...'
 
 
 
-#******************************
+#/******************************
 #   CLEANUP
-#******************************
+#/******************************
 
 echo ' --- CLEAN UP ---'
 echo 'Clean up done...'
@@ -179,14 +173,15 @@ echo 'Clean up done...'
 # FILES TO REMOVE:
 # setup.sh
 # capture_url.txt
+# pgb_response_ios.ipa
 # certs
 
 
 
 
-#******************************
+#/******************************
 #   DEPLOY
-#******************************
+#/******************************
 
 # to each respective app store (iOS / Android)
 
