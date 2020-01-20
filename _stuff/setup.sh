@@ -138,7 +138,7 @@ phonegap remote login --username brett.spradbury@gmail.com --password b_Sprad83 
 # check if an app exists, if so remove
 CORDOVA_TOKEN=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhdXRoIiwiaXNzIjoicGdiIiwianRpIjoiNGFmODlhNjctNzBmNC00ZjJmLTkxNjgtMTQ0ZDFiZTQyMmJiIn0.PO1cFMwAYV49CaYxkT5y9khJ1DExvGg1EYHRupA80L0
 CORDOVA_APP_ID="$(curl https://build.phonegap.com/api/v1/apps?auth_token=$CORDOVA_TOKEN 2>/dev/null | jq -r '.apps[].id')"
-echo '1' $CORDOVA_APP_ID
+echo 'Note 1: ' $CORDOVA_APP_ID
 if [[ $CORDOVA_APP_ID > 0 ]]
 then 
     echo "Greater Than Zero"
@@ -146,14 +146,14 @@ then
     rm -f root/applications/testapp/my_test_app/.cordova/config.json
     curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN
 else 
-    echo "Equals Zero"
+    echo "Note 2: Equals Zero"
 fi
 # download iTunes IPA file
-phonegap remote run ios #> capture_url.txt
+phonegap remote run ios > capture_url.txt
 PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
 echo $PGB_URL
 wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
-echo '3' $PWD
+echo 'Note 3: ' $PWD
 echo 'Phonegap cloud build done...'
 
 #### now we have IPA file! continue to ITSMT
