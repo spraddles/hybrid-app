@@ -13,7 +13,7 @@ echo 'Starting install...'
 # System updates
 #..............................
 sudo yum update -y &> /dev/null
-sudo yum install java-1.8.0-openjdk -y &> /dev/null
+sudo yum install java-11-openjdk-devel -y &> /dev/null
 sudo yum install zip -y &> /dev/null
 sudo yum install jq -y &> /dev/null
 sudo yum install wget -y &> /dev/null
@@ -63,12 +63,16 @@ tar -xvf archive.tar &> /dev/null
 sh iTMSTransporter_installer_linux_2.0.0.sh --target itms --noexec &> /dev/null
 rm -f iTMSTransporter_installer_linux_2.0.0.sh &> /dev/null
 cd itms
-# iTSMT workaround
+# iTSMT workaround:
 # ref: https://github.com/fastlane/fastlane/pull/11268
 # ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
-sed -e '15,43d' -i install_script.sh &> /dev/null
-yes | sh ./install_script.sh &> /dev/null
+sduo sed -e '15,43d' -i install_script.sh &> /dev/null
+yes | sh install_script.sh &> /dev/null
+# $PATH fix:
+export PATH=/usr/local/itms/bin:$PATH
 echo 'iTSMTransporter installed...'
+
+## Need to cleanup ITSMT files, already in '/usr/local/itms/bin' not needed in '/testapp/' etc
 
 
 
