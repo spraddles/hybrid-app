@@ -82,8 +82,6 @@ cd itms
 # ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
 sudo sed -e '15,43d' -i install_script.sh &> /dev/null
 yes | sh install_script.sh &> /dev/null
-# $PATH fix:
-export PATH=/usr/local/itms/bin:$PATH
 echo 'iTSMTransporter installed...'
 
 ## Need to cleanup ITSMT files, already in '/usr/local/itms/bin' not needed in '/testapp/' etc
@@ -125,6 +123,14 @@ cd / && cd usr/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonega
 sudo rm zip.js
 curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js &> /dev/null
 echo 'Node file patched...'
+
+# ITMS $PATH fix:
+#..............................
+cd / && cd usr/local/itms/bin
+export PATH=/usr/local/itms/bin:$PATH
+
+
+
 
 
 #/******************************
