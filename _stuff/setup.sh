@@ -1,6 +1,20 @@
 #!/usr/bin/env bash
 
 
+
+#/******************************
+#   SECRETS:
+#/******************************
+
+Phonegap (SDK login)
+Phonegap (auth token)
+iTSMT
+Make github repo private
+
+
+
+
+
 #/******************************
 #   INSTALL
 #/******************************
@@ -19,7 +33,7 @@ sudo yum install jq -y &> /dev/null
 sudo yum install wget -y &> /dev/null
 echo 'Yum updates done...'
 
-# NPM
+# NodeJS
 #..............................
 yum install -y gcc-c++ make &> /dev/null
 curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash - &> /dev/null
@@ -66,7 +80,7 @@ cd itms
 # iTSMT workaround:
 # ref: https://github.com/fastlane/fastlane/pull/11268
 # ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
-sduo sed -e '15,43d' -i install_script.sh &> /dev/null
+sudo sed -e '15,43d' -i install_script.sh &> /dev/null
 yes | sh install_script.sh &> /dev/null
 # $PATH fix:
 export PATH=/usr/local/itms/bin:$PATH
@@ -183,9 +197,11 @@ echo 'Clean up done...'
 # phonegap remote logout
 
 # FILES TO REMOVE:
+# _stuff DIR and arhive.tar
 # setup.sh
 # capture_url.txt
 # pgb_response_ios.ipa
+# iTSMT install files (_stuff/itsm/)
 # certs
 
 
