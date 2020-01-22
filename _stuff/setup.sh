@@ -6,10 +6,10 @@
 #   SECRETS:
 #/******************************
 
-Phonegap (SDK login)
-Phonegap (auth token)
-iTSMT
-Make github repo private
+#Phonegap (SDK login)
+#honegap (auth token)
+#iTSMT
+#Make github repo private
 
 
 
