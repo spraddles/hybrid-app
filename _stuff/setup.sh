@@ -6,9 +6,10 @@
 #   SECRETS:
 #/******************************
 
-# Phonegap -SDK login
-# Phonegap -auth token
-# iTSMT
+# Phonegap - SDK login (in args string command)
+# Phonegap - auth token
+# iTSMT - login (in args string command)
+# iTSMT - provider (TPTVYTBHA6)
 # Make github repo private
 
 
@@ -127,7 +128,7 @@ echo 'Node file patched...'
 # ITMS $PATH fix:
 #..............................
 cd / && cd usr/local/itms/bin
-export PATH=/usr/local/itms/bin:$PATH
+export PATH=$PATH:/usr/local/itms/bin
 
 
 
@@ -157,7 +158,7 @@ if [ -d www ]; then
 fi
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/" &> /dev/null
-cp -rf ./_stuff/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
+cp -rf ./_stuff/cordova/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
 cd / && cd $CORDOVA_DIR
 cordova prepare ios
 echo 'Cordova prepare done...'
@@ -191,6 +192,43 @@ echo 'Phonegap cloud build done...'
 
 
 
+
+
+
+
+
+#/******************************
+#   DEPLOY
+#/******************************
+
+# to each respective app store (iOS / Android)
+
+echo ''
+echo ' --- DEPLOY ---'
+
+
+cd / && cd 
+
+
+#cd / && cd /usr/local/itms/bin
+
+
+
+
+
+
+
+echo 'Deploy done...'
+
+
+
+
+
+
+
+
+
+
 #/******************************
 #   CLEANUP
 #/******************************
@@ -209,38 +247,5 @@ echo 'Clean up done...'
 # pgb_response_ios.ipa
 # iTSMT install files (_stuff/itsm/)
 # certs
-
-
-
-
-#/******************************
-#   DEPLOY
-#/******************************
-
-# to each respective app store (iOS / Android)
-
-echo ''
-echo ' --- DEPLOY ---'
-
-
-
-#cd / && cd /usr/local/itms/bin
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-echo 'Deploy done...'
 
 
