@@ -73,7 +73,7 @@ echo 'Git repo cloned...'
 
 # iTSMTransporter
 #..............................
-cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_stuff
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp
 tar -xvf archive.tar &> /dev/null
 sh iTMSTransporter_installer_linux_2.0.0.sh --target itms --noexec &> /dev/null
 rm -f iTMSTransporter_installer_linux_2.0.0.sh &> /dev/null
@@ -158,7 +158,7 @@ if [ -d www ]; then
 fi
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 cp -rf ./dist/. ."/"$CORDOVA_APP_NAME"/"www"/" &> /dev/null
-cp -rf ./_stuff/cordova/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
+cp -rf ./_tmp/cordova/build.json ."/"$CORDOVA_APP_NAME &> /dev/null
 cd / && cd $CORDOVA_DIR
 cordova prepare ios
 echo 'Cordova prepare done...'
@@ -207,10 +207,16 @@ echo ''
 echo ' --- DEPLOY ---'
 
 
-cd / && cd 
+
+# create .itmsp folder
+
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/".itmsp
+
+# move IPA into .itmsp folder
+# generate XML meta file
+# upload .itmsp to iTunes
 
 
-#cd / && cd /usr/local/itms/bin
 
 
 
@@ -241,11 +247,11 @@ echo 'Clean up done...'
 # phonegap remote logout
 
 # FILES TO REMOVE:
-# _stuff DIR and arhive.tar
+# _tmp DIR and arhive.tar
 # setup.sh
 # capture_url.txt
 # pgb_response_ios.ipa
-# iTSMT install files (_stuff/itsm/)
+# iTSMT install files (_tmp/itsm/)
 # certs
 
 

@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# usage: "sh ./theme-switch ios  ...OR...  sh ./theme-switch md"
+# usage:
+# sh ./theme-switch ios
+# sh ./theme-switch md
 
 LINE_MD=$(awk '/md/{print NR}' ./main.vue)
 LINE_IOS=$(awk '/ios/{print NR}' ./main.vue)
