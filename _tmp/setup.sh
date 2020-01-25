@@ -6,10 +6,10 @@
 #   SECRETS:
 #/******************************
 
-# Phonegap - SDK login (in args string command)
+# Phonegap - SDK login [in args string command]
 # Phonegap - auth token
-# iTSMT - login (in args string command)
-# iTSMT - provider (TPTVYTBHA6)
+# iTSMT - login [in args string command]
+# iTSMT - provider [TPTVYTBHA6]
 # Make github repo private
 
 
