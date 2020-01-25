@@ -209,10 +209,14 @@ echo ' --- DEPLOY ---'
 
 
 # create .itmsp folder
-
-cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/".itmsp
+# already exits!
+# cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/".itmsp
 
 # move IPA into .itmsp folder
+cd / && cd $CORDOVA_DIR
+cp ./pgb_response_ios.ipa ../_tmp/ios/.itmsp
+
+
 # generate XML meta file
 # upload .itmsp to iTunes
 
@@ -252,6 +256,7 @@ echo 'Clean up done...'
 # capture_url.txt
 # pgb_response_ios.ipa
 # iTSMT install files (_tmp/itsm/)
+# pgb_response_ios.ipa (2 places: my_test_app + _tmp/ios/.itmsp)
 # certs
 
 
