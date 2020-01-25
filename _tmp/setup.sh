@@ -6,10 +6,11 @@
 #   SECRETS:
 #/******************************
 
-# Phonegap -SDK login /in args string command/
+# Phonegap -SDK login [in args string command]
 # Phonegap -auth token
-# iTSMT -login /in args string command/
-# iTSMT -provider /TPTVYTBHA6/
+# iTSMT -login [in args string command]
+# iTSMT -provider [TPTVYTBHA6]
+# iTSMT -apple ID [1493360317]
 # Make github repo private
 
 
@@ -189,14 +190,6 @@ echo 'Phonegap cloud build done...'
 
 
 
-
-
-
-
-
-
-
-
 #/******************************
 #   DEPLOY
 #/******************************
@@ -209,15 +202,19 @@ echo ' --- DEPLOY ---'
 
 
 # create .itmsp folder
-# already exits!
-# cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/".itmsp
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
+mkdir .itmsp
 
 # move IPA into .itmsp folder
 cd / && cd $CORDOVA_DIR
 cp ./pgb_response_ios.ipa ../_tmp/ios/.itmsp
 
-
 # generate XML meta file
+CORDOVA_APP_FILESIZE="$(stat -c%s 'pgb_response_ios.ipa')"
+
+
+
+
 # upload .itmsp to iTunes
 
 
@@ -229,6 +226,12 @@ cp ./pgb_response_ios.ipa ../_tmp/ios/.itmsp
 
 
 echo 'Deploy done...'
+
+
+
+
+
+
 
 
 
