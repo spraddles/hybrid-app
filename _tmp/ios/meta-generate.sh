@@ -2,7 +2,7 @@
 
 ITSMT_VERSION='software2.0.0'
 APPLE_ID=1493360317
-CORDOVA_APP_FILESIZE="$(stat -c%s 'pgb_response_ios.ipa')"
+CORDOVA_APP_FILESIZE="$(stat -c%s './.itmsp/pgb_response_ios.ipa')"
 CORDOVA_APP_MD5CHECKSUM="$(md5sum ./.itmsp/pgb_response_ios.ipa | cut -f1 -d" ")"
 ITMSP_FILEPATH='./.itmsp/metadata.xml'
 
