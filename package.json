@@ -3,7 +3,7 @@
   "displayName": "HelloCordova",
   "version": "0.1.0",
   "description": "A sample Apache Cordova application that responds to the deviceready event.",
-  "main": "src/main.js",
+  "main": "vue/main.js",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

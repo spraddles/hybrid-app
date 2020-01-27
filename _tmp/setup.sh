@@ -103,7 +103,7 @@ echo ' --- CONFIG ---'
 #..............................
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 cordova telemetry off &> /dev/null
-CORDOVA_APP_NAME="my_test_app"
+CORDOVA_APP_NAME="cordova"
 CORDOVA_APP_ID="com.testapp.my"
 cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
@@ -174,7 +174,7 @@ CORDOVA_APP_ID="$(curl https://build.phonegap.com/api/v1/apps?auth_token=$CORDOV
 if [[ $CORDOVA_APP_ID > 0 ]]
 then 
     # fix ref: https://github.com/phonegap/phonegap-cli/issues/122
-    rm -f root/applications/testapp/my_test_app/.cordova/config.json
+    rm -f root/applications/testapp/$CORDOVA_APP_NAME/.cordova/config.json
     curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN &> /dev/null
 fi
 # download iTunes IPA file
