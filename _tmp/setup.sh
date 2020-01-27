@@ -198,10 +198,10 @@ echo 'Phonegap cloud build done...'
 
 # create .itmsp folder
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
-mkdir .itmsp
+mkdir myapp.itmsp
 # move IPA into .itmsp folder
 cd / && cd $CORDOVA_DIR
-cp ./pgb_response_ios.ipa ../_tmp/ios/.itmsp
+cp ./pgb_response_ios.ipa ../_tmp/ios/myapp.itmsp
 # generate XML meta file
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
 sh meta-generate.sh
