@@ -6,3 +6,6 @@ node_modules
 
 # Cordova
 my_test_app
+
+# iOS
+_tmp/ios/.itmsp
