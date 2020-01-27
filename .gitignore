@@ -5,7 +5,7 @@ dist
 node_modules
 
 # Cordova
-my_test_app
+cordova
 
 _tmp/certs
 _tmp/ios/.*
