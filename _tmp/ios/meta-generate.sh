@@ -2,13 +2,14 @@
 
 ITSMT_VERSION='software2.0.0'
 APPLE_ID=1493360317
+APPLE_BUNDLE_IDENTIFIER='com.testapp.domain'
 CORDOVA_APP_FILESIZE="$(stat -c%s './.itmsp/pgb_response_ios.ipa')"
 CORDOVA_APP_MD5CHECKSUM="$(md5sum ./.itmsp/pgb_response_ios.ipa | cut -f1 -d" ")"
 ITMSP_FILEPATH='./.itmsp/metadata.xml'
 
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > $ITMSP_FILEPATH
 echo "<package xmlns=\"http://apple.com/itunes/importer\" version=\"$ITSMT_VERSION\">" >> $ITMSP_FILEPATH
-echo "  <software_assets apple_id=\"$APPLE_ID\"" app_platform=\"ios\"" bundle_short_version_string=\"1.0\"" bundle_version=\"1.0\"" bundle_identifier=\"com.apple.contentdelivery.myApp\">" >> $ITMSP_FILEPATH
+echo "  <software_assets apple_id=\"$APPLE_ID\"" app_platform=\"ios\"" bundle_short_version_string=\"1.0\"" bundle_version=\"1.0\"" bundle_identifier=\"$APPLE_BUNDLE_IDENTIFIER\">" >> $ITMSP_FILEPATH
 echo "   <asset type=\"bundle\">" >> $ITMSP_FILEPATH
 echo "    <data_file>" >> $ITMSP_FILEPATH
 echo "     <size>$CORDOVA_APP_FILESIZE</size>" >> $ITMSP_FILEPATH

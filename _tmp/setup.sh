@@ -206,6 +206,7 @@ cp ./pgb_response_ios.ipa ../_tmp/ios/.itmsp
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
 sh meta-generate.sh
 
+
 # check XML file
 
 
