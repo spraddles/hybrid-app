@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-ITSMT_VERSION='5.4'
+ITSMT_VERSION='5.9'
 APPLE_ID=1493360317
 APPLE_BUNDLE_IDENTIFIER='com.testapp.domain'
 CORDOVA_APP_FILESIZE="$(stat -c%s './.itmsp/pgb_response_ios.ipa')"
