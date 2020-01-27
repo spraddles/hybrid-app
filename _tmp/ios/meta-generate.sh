@@ -3,9 +3,9 @@
 ITSMT_VERSION='5.9'
 APPLE_ID=1493360317
 APPLE_BUNDLE_IDENTIFIER='com.testapp.domain'
-CORDOVA_APP_FILESIZE="$(stat -c%s './.itmsp/pgb_response_ios.ipa')"
-CORDOVA_APP_MD5CHECKSUM="$(md5sum ./.itmsp/pgb_response_ios.ipa | cut -f1 -d" ")"
-ITMSP_FILEPATH='./.itmsp/metadata.xml'
+CORDOVA_APP_FILESIZE="$(stat -c%s './myapp.itmsp/pgb_response_ios.ipa')"
+CORDOVA_APP_MD5CHECKSUM="$(md5sum ./myapp.itmsp/pgb_response_ios.ipa | cut -f1 -d" ")"
+ITMSP_FILEPATH='./myapp.itmsp/metadata.xml'
 
 echo "<?xml version=\"1.0\" encoding=\"UTF-8\"?>" > $ITMSP_FILEPATH
 echo "<package xmlns=\"http://apple.com/itunes/importer\" version=\"software$ITSMT_VERSION\">" >> $ITMSP_FILEPATH
