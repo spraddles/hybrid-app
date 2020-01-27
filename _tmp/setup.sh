@@ -11,6 +11,7 @@
 # iTSMT -login [in args string command]
 # iTSMT -provider [TPTVYTBHA6]
 # iTSMT -apple ID [1493360317] in meta-info.sh file
+# iTSMT -app specific password [kxux-bcsw-syeg-paej]
 # Make github repo private
 
 
@@ -205,9 +206,15 @@ cp ./pgb_response_ios.ipa ../_tmp/ios/.itmsp
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
 sh meta-generate.sh
 
+# check XML file
+
 
 
 # upload .itmsp to iTunes
+
+
+# ITMST check:
+# iTMSTransporter -m provider -u badsprad@icloud.com -p kxux-bcsw-syeg-paej -v eXtreme
 
 
 
