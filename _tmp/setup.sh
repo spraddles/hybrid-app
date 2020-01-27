@@ -10,7 +10,7 @@
 # Phonegap -auth token
 # iTSMT -login [in args string command]
 # iTSMT -provider [TPTVYTBHA6]
-# iTSMT -apple ID [1493360317]
+# iTSMT -apple ID [1493360317] in meta-info.sh file
 # Make github repo private
 
 
@@ -210,7 +210,7 @@ cd / && cd $CORDOVA_DIR
 cp ./pgb_response_ios.ipa ../_tmp/ios/.itmsp
 
 # generate XML meta file
-CORDOVA_APP_FILESIZE="$(stat -c%s 'pgb_response_ios.ipa')"
+
 
 
 
