@@ -7,6 +7,5 @@ node_modules
 # Cordova
 my_test_app
 
-
 _tmp/certs
-_tmp/certs/ios/*
+_tmp/ios/.*
