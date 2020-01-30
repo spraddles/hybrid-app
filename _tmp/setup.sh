@@ -35,20 +35,7 @@ sudo yum install zip -y &> /dev/null
 sudo yum install jq -y &> /dev/null
 sudo yum install wget -y &> /dev/null
 sudo yum install unzip -y &> /dev/null
-
-
-sudo yum install libplist
-
-sudo easy_install pip -y &> /dev/null
-
-sudo pip install plistutils &> /dev/null
-sudo pip install --upgrade pip &> /dev/null
-
-
-
-
-
-
+sudo yum install libimobiledevice -y &> /dev/null
 echo 'Yum updates done...'
 
 # NodeJS
@@ -234,8 +221,10 @@ cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/"$ITMSP_DIR_NAME
 mv Info.plist AppStoreInfo.plist
 rm -rf unzipped
 
-
-
+# convert PLIST file to XML
+plistutil -i AppStoreInfo.plist -o AppStoreInfo.xml
+rm -f AppStoreInfo.plist
+mv AppStoreInfo.xml AppStoreInfo.plist
 
 
 # delete files
