@@ -34,6 +34,21 @@ sudo yum install java-11-openjdk-devel -y &> /dev/null
 sudo yum install zip -y &> /dev/null
 sudo yum install jq -y &> /dev/null
 sudo yum install wget -y &> /dev/null
+sudo yum install unzip -y &> /dev/null
+
+
+sudo yum install libplist
+
+sudo easy_install pip -y &> /dev/null
+
+sudo pip install plistutils &> /dev/null
+sudo pip install --upgrade pip &> /dev/null
+
+
+
+
+
+
 echo 'Yum updates done...'
 
 # NodeJS
@@ -195,16 +210,37 @@ echo 'Phonegap cloud build done...'
 #/******************************
 #   PREPARE
 #/******************************
-
+ITMSP_DIR_NAME='myapp.itmsp'
 # create .itmsp folder
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
-mkdir myapp.itmsp
+mkdir $ITMSP_DIR_NAME
+
 # move IPA into .itmsp folder
 cd / && cd $CORDOVA_DIR
-cp ./pgb_response_ios.ipa ../_tmp/ios/myapp.itmsp
+cp ./pgb_response_ios.ipa ../_tmp/ios/$ITMSP_DIR_NAME &> /dev/null
+
 # generate XML meta file
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
-sh meta-generate.sh
+sh meta-generate.sh &> /dev/null
+
+# get PLIST file
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/"$ITMSP_DIR_NAME
+unzip pgb_response_ios.ipa -d ./unzipped
+cd unzipped && cd Payload
+PHONEGAP_APP_NAME='HelloCordova.app'
+cd $PHONEGAP_APP_NAME
+cp ./Info.plist "/"$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/"$ITMSP_DIR_NAME &> /dev/null
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/"$ITMSP_DIR_NAME
+mv Info.plist AppStoreInfo.plist
+rm -rf unzipped
+
+
+
+
+
+# delete files
+
+
 
 
 # check XML file
@@ -270,5 +306,6 @@ echo 'Clean up done...'
 # iTSMT install files (_tmp/itsm/)
 # pgb_response_ios.ipa (2 places: my_test_app + _tmp/ios/.itmsp)
 # certs
+# unzipped > payload > (to get the PLIST file)
 
 
