@@ -184,9 +184,11 @@ fi
 phonegap remote run ios > capture_url.txt
 PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
 wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa &> /dev/null
+#### now we have IPA file! continue to ITSMT
+
 echo 'Phonegap cloud build done...'
 
-#### now we have IPA file! continue to ITSMT
+
 
 
 
@@ -197,8 +199,12 @@ echo 'Phonegap cloud build done...'
 #/******************************
 #   PREPARE
 #/******************************
-ITMSP_DIR_NAME='myapp.itmsp'
+
+echo ''
+echo ' --- PREPARE ---'
+
 # create .itmsp folder
+ITMSP_DIR_NAME='myapp.itmsp'
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
 mkdir $ITMSP_DIR_NAME
 
