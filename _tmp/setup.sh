@@ -133,7 +133,7 @@ echo 'Node file patched...'
 #..............................
 cd / && cd usr/local/itms/bin
 export PATH=$PATH:/usr/local/itms/bin
-
+echo 'ITMS path fix done...'
 
 
 
@@ -207,6 +207,7 @@ echo ' --- PREPARE ---'
 ITMSP_DIR_NAME='myapp.itmsp'
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
 mkdir $ITMSP_DIR_NAME
+echo '.itmsp folder create done...'
 
 # move IPA into .itmsp folder
 cd / && cd $CORDOVA_DIR
@@ -215,22 +216,26 @@ cp ./pgb_response_ios.ipa ../_tmp/ios/$ITMSP_DIR_NAME &> /dev/null
 # generate XML meta file
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
 sh meta-generate.sh &> /dev/null
+echo 'XML meta file generated...'
 
 # get PLIST file
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/"$ITMSP_DIR_NAME
-unzip pgb_response_ios.ipa -d ./unzipped
+unzip pgb_response_ios.ipa -d ./unzipped &> /dev/null
 cd unzipped && cd Payload
 PHONEGAP_APP_NAME='HelloCordova.app'
 cd $PHONEGAP_APP_NAME
 cp ./Info.plist "/"$APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/"$ITMSP_DIR_NAME &> /dev/null
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/"$ITMSP_DIR_NAME
-mv Info.plist AppStoreInfo.plist
-rm -rf unzipped
+mv Info.plist AppStoreInfo.plist &> /dev/null
+rm -rf unzipped &> /dev/null
 
 # convert PLIST file to XML
 plistutil -i AppStoreInfo.plist -o AppStoreInfo.xml
 rm -f AppStoreInfo.plist
 mv AppStoreInfo.xml AppStoreInfo.plist
+echo 'PLIST file extracted & converted to XML...'
+
+
 
 
 # delete files
