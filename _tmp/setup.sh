@@ -85,7 +85,6 @@ cd itms
 # ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
 # delete lines 15-28 (ITMST 2.9.7) / delete lines 15-43 (ITMST 2.0.0) 
 sudo sed -e '15,28d' -i install_script.sh &> /dev/null
-#sudo sed -e '15,43d' -i install_script.sh &> /dev/null
 yes | sh install_script.sh &> /dev/null
 echo 'iTSMTransporter installed...'
 
