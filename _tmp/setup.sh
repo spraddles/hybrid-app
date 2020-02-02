@@ -77,15 +77,15 @@ echo 'Git repo cloned...'
 
 # iTSMTransporter
 #..............................
-cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp
-tar -xvf archive.tar &> /dev/null
-sh iTMSTransporter_installer_linux_2.0.0.sh --target itms --noexec &> /dev/null
-rm -f iTMSTransporter_installer_linux_2.0.0.sh &> /dev/null
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios"/"ITMST
+sh iTMSTransporter_installer_linux_1.9.7.sh --target itms --noexec &> /dev/null
 cd itms
 # iTSMT workaround:
 # ref: https://github.com/fastlane/fastlane/pull/11268
 # ref: https://askubuntu.com/questions/338857/automatically-enter-input-in-command-line
-sudo sed -e '15,43d' -i install_script.sh &> /dev/null
+# delete lines 15-28 (ITMST 2.9.7) / delete lines 15-43 (ITMST 2.0.0) 
+sudo sed -e '15,28d' -i install_script.sh &> /dev/null
+#sudo sed -e '15,43d' -i install_script.sh &> /dev/null
 yes | sh install_script.sh &> /dev/null
 echo 'iTSMTransporter installed...'
 
