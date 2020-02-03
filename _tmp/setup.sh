@@ -321,8 +321,10 @@ echo 'Clean up done...'
 # unzipped > payload > (to get the PLIST file)
 
 
+echo ''
+echo ' --- SUMMARY ---'
 ELAPSED_TIME=$(($SECONDS - $START_TIME))
-echo 'Process duration:' "$(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec"
+echo 'Script duration:' "$(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec"
 
 
 
