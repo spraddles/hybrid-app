@@ -8,4 +8,4 @@ node_modules
 cordova
 
 _tmp/certs
-_tmp/ios/.*
+# _tmp/ios/.*
