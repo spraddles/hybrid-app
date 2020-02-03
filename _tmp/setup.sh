@@ -134,7 +134,14 @@ cd / && cd usr/local/itms/bin
 export PATH=$PATH:/usr/local/itms/bin
 echo 'ITMS path fix done...'
 
-
+# ITMS keyfile
+#..............................
+cd / && cd root
+mkdir private_keys
+IOS_KEYFILE='AuthKey_9CZ7Y9885P.p8'
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
+cp $IOS_KEYFILE $HOME/private_keys/$IOS_KEYFILE
+echo 'ITMS keyfile copied...'
 
 
 #/******************************
