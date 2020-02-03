@@ -18,6 +18,12 @@
 
 
 
+
+
+
+
+START_TIME=$SECONDS
+
 #/******************************
 #   INSTALL
 #/******************************
@@ -313,5 +319,12 @@ echo 'Clean up done...'
 # pgb_response_ios.ipa (2 places: my_test_app + _tmp/ios/.itmsp)
 # certs
 # unzipped > payload > (to get the PLIST file)
+
+
+ELAPSED_TIME=$(($SECONDS - $START_TIME))
+echo 'Process duration:' "$(($ELAPSED_TIME/60)) min $(($ELAPSED_TIME%60)) sec"
+
+
+
 
 
