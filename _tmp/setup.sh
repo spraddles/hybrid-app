@@ -10,8 +10,9 @@
 # Phonegap -auth token
 # iTSMT -login [in args string command]
 # iTSMT -provider [TPTVYTBHA6]
-# iTSMT -apple ID [1493360317] in meta-info.sh file
-# iTSMT -app specific password [kxux-bcsw-syeg-paej]
+# iTSMT -apple ID in meta-info.sh file
+# iTSMT -apiIssuer
+# iTSMT -apiKey
 # Make github repo private
 
 
@@ -247,23 +248,40 @@ rm -f AppStoreInfo.plist
 mv AppStoreInfo.xml AppStoreInfo.plist
 echo 'PLIST file extracted & converted to XML...'
 
-
-
-
-# delete files
-
-
-
-
-# check XML file
-
-
-
-# upload .itmsp to iTunes
-
-
 # ITMST check:
-# iTMSTransporter -m provider -u badsprad@icloud.com -p kxux-bcsw-syeg-paej -v eXtreme
+ITMST_API_ISSUER='69a6de96-b5e0-47e3-e053-5b8c7c11a4d1'
+ITMST_API_KEY='9CZ7Y9885P'
+iTMSTransporter -m verify -apiIssuer $ITMST_API_ISSUER -apiKey $ITMST_API_KEY -v eXtreme -f myapp.itmsp -assetDescription myapp.itmsp/AppStoreInfo.plist
+
+
+
+
+
+
+
+
+
+
+#/******************************
+#   BACKUP
+#/******************************
+
+
+# iOS files
+# Android files
+# Web app files
+# create a backup DIR for all of these
+# document a restore process
+
+
+
+
+
+echo ''
+echo ' --- BACKUP ---'
+
+
+
 
 
 
@@ -274,6 +292,14 @@ echo 'PLIST file extracted & converted to XML...'
 #/******************************
 
 # to each respective app store (iOS / Android)
+
+
+
+# upload .itmsp to iTunes
+
+
+
+
 
 echo ''
 echo ' --- DEPLOY ---'
