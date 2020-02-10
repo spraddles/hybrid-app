@@ -113,7 +113,7 @@ echo ' --- CONFIG ---'
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
 cordova telemetry off &> /dev/null
 CORDOVA_APP_NAME="cordova"
-CORDOVA_APP_ID="com.testapp.my"
+CORDOVA_APP_ID="com.testapp.domain"
 cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID &> /dev/null
 cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
 cordova platform add ios &> /dev/null
@@ -280,7 +280,7 @@ iTMSTransporter -m verify -apiIssuer $ITMST_API_ISSUER -apiKey $ITMST_API_KEY -v
 echo ''
 echo ' --- BACKUP ---'
 
-
+echo 'Backup done...'
 
 
 
