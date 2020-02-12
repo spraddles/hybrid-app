@@ -251,6 +251,7 @@ echo 'PLIST file extracted & converted to XML...'
 # ITMST check:
 ITMST_API_ISSUER='69a6de96-b5e0-47e3-e053-5b8c7c11a4d1'
 ITMST_API_KEY='9CZ7Y9885P'
+cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"_tmp"/"ios
 iTMSTransporter -m verify -apiIssuer $ITMST_API_ISSUER -apiKey $ITMST_API_KEY -v eXtreme -f myapp.itmsp -assetDescription myapp.itmsp/AppStoreInfo.plist
 
 
