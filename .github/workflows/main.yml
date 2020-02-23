@@ -15,6 +15,7 @@ jobs:
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
         brew install fastlane
         brew install node
+        brew link --overwrite node
         sudo npm install -g cordova
         sudo npm install -g phonegap
         brew install git
