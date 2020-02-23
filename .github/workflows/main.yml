@@ -23,10 +23,10 @@ jobs:
         brew install git
         
         # DIR setup
-        cd / && cd root
+        cd / && cd/users/$USER
         APPLICATIONS_BASE_DIR_NAME="applications"
         mkdir $APPLICATIONS_BASE_DIR_NAME
-        APPLICATIONS_BASE_DIR=root"/"$APPLICATIONS_BASE_DIR_NAME
+        APPLICATIONS_BASE_DIR=users/$USER"/"$APPLICATIONS_BASE_DIR_NAME
         cd / && cd $APPLICATIONS_BASE_DIR
         
         # Git clone
