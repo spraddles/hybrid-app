@@ -29,7 +29,7 @@ jobs:
         APPLICATIONS_BASE_DIR_NAME="applications"
         mkdir $APPLICATIONS_BASE_DIR_NAME
         
-        cd / && cd/Users/$USER
+        cd / && cd Users/$USER
         APPLICATIONS_BASE_DIR_NAME="applications"
         mkdir $APPLICATIONS_BASE_DIR_NAME
         APPLICATIONS_BASE_DIR=Users/$USER"/"$APPLICATIONS_BASE_DIR_NAME
