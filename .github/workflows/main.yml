@@ -1,17 +1,22 @@
 name: CI
 
-on: [push]
+on: push
 
 jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
+  build_common:
+    
+    runs-on: macos-latest
+    
     steps:
     - uses: actions/checkout@v2
-    - name: Run a one-line script
-      run: echo Hello, world!
-    - name: Run a multi-line script
+      
+    - name: Install requirements
       run: |
-        echo Add other actions to build,
-        echo test, and deploy your project.
+        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        brew install fastlane
+        curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash -
+        sudo install -y nodejs
+        sudo npm install -g cordova
+        sudo npm install -g phonegap
+        
+        
