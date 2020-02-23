@@ -15,32 +15,32 @@ jobs:
       run: |
         
         #Pre-reqs
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-        brew install node@10
-        brew install fastlane
-        sudo npm install -g cordova
-        sudo npm install -g phonegap
-        brew install git
+        #sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+        #brew install node@10
+        #brew install fastlane
+        #sudo npm install -g cordova
+        #sudo npm install -g phonegap
+        #brew install git
         
         # DIR setup
-        cd / && cd/users/$USER
+        cd / && cd/Users/$USER
         APPLICATIONS_BASE_DIR_NAME="applications"
         mkdir $APPLICATIONS_BASE_DIR_NAME
-        APPLICATIONS_BASE_DIR=users/$USER"/"$APPLICATIONS_BASE_DIR_NAME
+        APPLICATIONS_BASE_DIR=Users/$USER"/"$APPLICATIONS_BASE_DIR_NAME
         cd / && cd $APPLICATIONS_BASE_DIR
         
         # Git clone
         APP_DIR_NAME='testapp'
-        git clone 'https://github.com/badsprad/'$APP_DIR_NAME
+        #git clone 'https://github.com/badsprad/'$APP_DIR_NAME
         
         # Cordova
         cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
-        cordova telemetry off
-        CORDOVA_APP_NAME="cordova"
-        CORDOVA_APP_ID="com.testapp.domain"
-        cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
+        #cordova telemetry off
+        #CORDOVA_APP_NAME="cordova"
+        #CORDOVA_APP_ID="com.testapp.domain"
+        #cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
         cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
-        cordova platform add ios
+        #cordova platform add ios
         #cordova platform add android
         
         
