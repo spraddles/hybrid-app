@@ -16,8 +16,7 @@ jobs:
         echo 'eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >>~/.profile
         eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
         brew install fastlane
-        curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash -
-        sudo install -y nodejs
+        brew install node
         sudo npm install -g cordova
         sudo npm install -g phonegap
         
