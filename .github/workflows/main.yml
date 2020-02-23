@@ -23,6 +23,13 @@ jobs:
         #brew install git
         
         # DIR setup
+        
+        cd /
+        ls
+        pwd
+        cd Users
+        ls
+        
         cd / && cd/Users/$USER
         APPLICATIONS_BASE_DIR_NAME="applications"
         mkdir $APPLICATIONS_BASE_DIR_NAME
