@@ -26,7 +26,7 @@ jobs:
         
         cd $HOME
         echo $HOME
-        $APPLICATIONS_BASE_DIR_NAME="applications"
+        APPLICATIONS_BASE_DIR_NAME="applications"
         mkdir $APPLICATIONS_BASE_DIR_NAME
         
         cd / && cd/Users/$USER
