@@ -12,7 +12,7 @@ jobs:
       
     - name: Install requirements
       run: |
-        /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
         brew install fastlane
         curl -sL https://rpm.nodesource.com/setup_12.x | sudo -E bash -
         sudo install -y nodejs
