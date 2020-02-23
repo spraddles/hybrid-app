@@ -13,12 +13,9 @@ jobs:
     - name: Install requirements
       run: |
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+        brew install node@10
         brew install fastlane
-        brew install node
-        brew link --overwrite --force node@12
         sudo npm install -g cordova
         sudo npm install -g phonegap
         brew install git
-        
-        
         
