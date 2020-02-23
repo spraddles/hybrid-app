@@ -27,7 +27,8 @@ jobs:
         cd /
         ls
         pwd
-        cd Users
+        cd runner
+        pwd
         ls
         
         cd / && cd/Users/$USER
