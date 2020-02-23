@@ -22,13 +22,7 @@ jobs:
         #sudo npm install -g phonegap
         #brew install git
         
-        # DIR setup
-        
-        cd $HOME
-        echo $HOME
-        APPLICATIONS_BASE_DIR_NAME="applications"
-        mkdir $APPLICATIONS_BASE_DIR_NAME
-        
+        # DIR setup    
         cd / && cd Users/$USER
         APPLICATIONS_BASE_DIR_NAME="applications"
         mkdir $APPLICATIONS_BASE_DIR_NAME
