@@ -24,12 +24,10 @@ jobs:
         
         # DIR setup
         
-        cd /
-        ls
-        pwd
-        cd runner
-        pwd
-        ls
+        cd $HOME
+        echo $HOME
+        $APPLICATIONS_BASE_DIR_NAME="applications"
+        mkdir $APPLICATIONS_BASE_DIR_NAME
         
         cd / && cd/Users/$USER
         APPLICATIONS_BASE_DIR_NAME="applications"
