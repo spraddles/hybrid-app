@@ -35,12 +35,12 @@ jobs:
       run: |
 
         # Cordova
-        cd / && cd $BASE_HOME/applications/testapp
+        cd testapp
         echo 'LISTEN 2:' $PWD
         cordova telemetry off
         CORDOVA_APP_NAME="cordova"
         CORDOVA_APP_ID="com.testapp.domain"
         cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
-        cd / && cd $BASE_HOME/applications/testapp/$CORDOVA_APP_NAME
+        cd $CORDOVA_APP_NAME
         cordova platform add ios
         #cordova platform add android
