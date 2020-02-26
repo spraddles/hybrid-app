@@ -4,13 +4,13 @@ on: push
 
 jobs:
   build_common:
-    
+
     name: Build on Mac
     runs-on: macos-10.15
-    
+
     steps:
     - uses: actions/checkout@v2
-      
+
     - name: common_all
       run: |
         
@@ -22,5 +22,8 @@ jobs:
         sudo npm install -g phonegap
         brew install git
         
+        mkdir applications
+        cd applications
+
         # Git clone
         git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
