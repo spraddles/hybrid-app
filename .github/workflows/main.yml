@@ -34,6 +34,7 @@ jobs:
         
         # Git clone
         APP_DIR_NAME='testapp'
+        git remote set-url origin git@github.com:badsprad/testapp.git
         git clone https://github.com/badsprad/$APP_DIR_NAME
         
         # Cordova
