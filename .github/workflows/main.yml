@@ -28,6 +28,7 @@ jobs:
         mkdir $APPLICATIONS_BASE_DIR_NAME
         APPLICATIONS_BASE_DIR=Users/$USER"/"$APPLICATIONS_BASE_DIR_NAME
         cd / && cd $APPLICATIONS_BASE_DIR
+        echo 'LISTEN 1:' $PWD
         
         # Git clone
         APP_DIR_NAME='testapp'
@@ -38,6 +39,7 @@ jobs:
 
         # Cordova
         cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+        echo 'LISTEN 1:' $PWD
         cordova telemetry off
         CORDOVA_APP_NAME="cordova"
         CORDOVA_APP_ID="com.testapp.domain"
