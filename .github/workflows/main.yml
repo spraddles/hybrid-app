@@ -25,26 +25,22 @@ jobs:
         # DIR setup
         $PWD=BASE_HOME
         cd / && cd $BASE_HOME
-        APPLICATIONS_BASE_DIR_NAME="applications"
-        mkdir $APPLICATIONS_BASE_DIR_NAME
-        APPLICATIONS_BASE_DIR=$BASE_HOME"/"$APPLICATIONS_BASE_DIR_NAME
-        cd / && cd $APPLICATIONS_BASE_DIR
-        echo 'LISTEN 1:' $PWD
+        mkdir applications
+        cd / && cd $BASE_HOME"/"applications
         
         # Git clone
-        APP_DIR_NAME='testapp'
-        git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/$APP_DIR_NAME.git
+        git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
     - name: common_mobile
       run: |
 
         # Cordova
-        cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
+        cd / && cd $BASE_HOME"/"applications"/"testapp
         echo 'LISTEN 2:' $PWD
         cordova telemetry off
         CORDOVA_APP_NAME="cordova"
         CORDOVA_APP_ID="com.testapp.domain"
         cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
-        cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME"/"$CORDOVA_APP_NAME
+        cd / && cd $BASE_HOME"/"applications"/"testapp"/"$CORDOVA_APP_NAME
         cordova platform add ios
-        cordova platform add android
+        #cordova platform add android
