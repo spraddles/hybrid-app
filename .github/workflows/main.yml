@@ -10,6 +10,9 @@ jobs:
     
     steps:
     - uses: actions/checkout@v2
+      with:
+        repository: badsprad/testapp
+        token: ${{ secrets.GITHUB_REPO_TOKEN }}
       
     - name: Setup
       run: |
@@ -31,7 +34,7 @@ jobs:
         
         # Git clone
         APP_DIR_NAME='testapp'
-        git clone $APP_DIR_NAME
+        git clone https://github.com/badsprad/$APP_DIR_NAME
         
         # Cordova
         cd / && cd $APPLICATIONS_BASE_DIR"/"$APP_DIR_NAME
