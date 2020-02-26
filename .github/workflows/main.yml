@@ -13,7 +13,11 @@ jobs:
 
     - name: common_all
       run: |
-        
+
+      ### NOTE TO SELF: ###
+      # DIR or variables don't carry over to other Steps
+      # therefore keep everything in one step?
+
         #Pre-reqs
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
         brew install node@10
