@@ -9,9 +9,10 @@ jobs:
   build_common:
     name: Build on Mac
     runs-on: macos-10.15
+    
     steps:
-    - uses: actions/checkout@v2
     - name: common_all
+    - uses: actions/checkout@v2
     - run: |
 
         #Pre-reqs
@@ -27,6 +28,7 @@ jobs:
         git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
     - name: common_mobile
+    - uses: actions/checkout@v2
     - run: |
 
         # Cordova
