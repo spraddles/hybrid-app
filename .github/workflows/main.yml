@@ -1,9 +1,6 @@
 name: CI
 
-on: 
-  push:
-    branches:
-    - master
+on: push
 
 jobs:
   build_common:
@@ -28,7 +25,6 @@ jobs:
         git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
     - name: common_mobile
-    - uses: actions/checkout@v2
     - run: |
 
         # Cordova
