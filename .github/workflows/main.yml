@@ -30,6 +30,9 @@ jobs:
         cd applications
         git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
+    - name: common_mobile
+      run: |
+
         # Cordova
         cd testapp
         cordova telemetry off
