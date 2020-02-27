@@ -24,13 +24,12 @@ jobs:
           mkdir applications
           cd applications
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
-          cd testapp
 
       - name: common_mobile
         run: |
 
           # Cordova
-
+          cd testapp
           cordova telemetry off
           CORDOVA_APP_NAME="cordova"
           CORDOVA_APP_ID="com.testapp.domain"
