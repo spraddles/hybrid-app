@@ -6,33 +6,30 @@ jobs:
   build_common:
     name: Build on Mac
     runs-on: macos-10.15
-    
     steps:
-    - name: common_all
-    - uses: actions/checkout@v2
-    - run: |
+      - name: common_all
+        run: |
+          #Pre-reqs
+          sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
+          brew install node@10
+          brew install fastlane
+          sudo npm install -g cordova
+          sudo npm install -g phonegap
+          brew install git
 
-        #Pre-reqs
-        sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
-        brew install node@10
-        brew install fastlane
-        sudo npm install -g cordova
-        sudo npm install -g phonegap
-        brew install git
+          mkdir applications
+          cd applications
+          git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
-        mkdir applications
-        cd applications
-        git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
+      - name: common_mobile
+        run: |
 
-    - name: common_mobile
-    - run: |
-
-        # Cordova
-        cd testapp
-        cordova telemetry off
-        CORDOVA_APP_NAME="cordova"
-        CORDOVA_APP_ID="com.testapp.domain"
-        cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
-        cd $CORDOVA_APP_NAME
-        cordova platform add ios
-        #cordova platform add android
+          # Cordova
+          cd testapp
+          cordova telemetry off
+          CORDOVA_APP_NAME="cordova"
+          CORDOVA_APP_ID="com.testapp.domain"
+          cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
+          cd $CORDOVA_APP_NAME
+          cordova platform add ios
+          #cordova platform add android
