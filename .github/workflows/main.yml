@@ -1,23 +1,14 @@
 name: CI
-
 on: push
-
 jobs:
   build_common:
-
     name: Build on Mac
     runs-on: macos-10.15
-
     steps:
-    - uses: actions/checkout@v2
-
-    - name: common_all
-      run: |
-
-      ### NOTE TO SELF: ###
-      # DIR or variables don't carry over to other Steps
-      # therefore keep everything in one step?
-
+      - uses: actions/checkout@v2
+      - name: common_all
+        run: |
+          
         #Pre-reqs
         sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
         brew install node@10
@@ -30,8 +21,8 @@ jobs:
         cd applications
         git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
-    - name: common_mobile
-      run: |
+      - name: common_mobile
+        run: |
 
         # Cordova
         cd testapp
