@@ -13,6 +13,7 @@ jobs:
 
       - name: common_all
         run: |
+
           #Pre-reqs
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
           brew install node@10
@@ -32,4 +33,14 @@ jobs:
           cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
           cd $CORDOVA_APP_NAME
           cordova platform add ios
-          #cordova platform add androidß
+          #cordova platform add android
+
+          # NPM config
+          cd ..
+          npm install
+          npm audit fix
+
+          
+
+
+
