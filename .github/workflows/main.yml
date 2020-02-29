@@ -40,7 +40,17 @@ jobs:
           npm install
           npm audit fix
 
-          
+          # Vue build
+          npm run webpack-build
 
+          # Cordova prepare, copy DIST output from Vue to Cordova
+          cd www
+          if [ -d www ]; then
+            rm -rf www
+          fi
+          cd ..
+          cp -rf ./dist/. ./$CORDOVA_APP_NAME/www
+          cp -rf ./_tmp/cordova/build.json ."/"$CORDOVA_APP_NAME
+          cordova prepare ios
 
 
