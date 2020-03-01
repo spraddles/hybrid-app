@@ -23,14 +23,20 @@ jobs:
           brew install git
           mkdir applications
           echo 'echo 1a:' $PWD
+          #[echo 1a: /Users/runner/runners/2.165.2/work/testapp/testapp]
+
+          $PWD=NEW_HOME
           cd applications
           echo 'echo 1b:' $PWD
+          #[echo 1b: /Users/runner/runners/2.165.2/work/testapp/testapp/applications]
+
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
           # Cordova
           cd testapp
-          echo 'echo 1c:' $PWD 
-          #[echo 1: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp]
+          echo 'echo 1c:' $PWD
+          #[echo 1c: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp]
+
           cordova telemetry off
           CORDOVA_APP_NAME="cordova"
           CORDOVA_APP_ID="com.testapp.domain"
@@ -52,8 +58,8 @@ jobs:
           npm run webpack-build
 
           # Cordova prepare, copy DIST output from Vue to Cordova
-          cd www
-          echo 'echo 4:' $PWD 
+          cd $CORDOVA_APP_NAME/www
+          echo 'echo 4:' $PWD
           if [ -d www ]; then
             rm -rf www
           fi
