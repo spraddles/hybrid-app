@@ -25,7 +25,6 @@ jobs:
           echo 'echo 1a:' $PWD
           #[echo 1a: /Users/runner/runners/2.165.2/work/testapp/testapp]
 
-          $PWD=NEW_HOME
           cd applications
           echo 'echo 1b:' $PWD
           #[echo 1b: /Users/runner/runners/2.165.2/work/testapp/testapp/applications]
