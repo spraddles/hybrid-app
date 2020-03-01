@@ -27,16 +27,19 @@ jobs:
 
           # Cordova
           cd testapp
+          echo 'echo 1:' $PWD
           cordova telemetry off
           CORDOVA_APP_NAME="cordova"
           CORDOVA_APP_ID="com.testapp.domain"
           cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
           cd $CORDOVA_APP_NAME
+          echo 'echo 2:' $PWD
           cordova platform add ios
           #cordova platform add android
 
           # NPM config
           cd ..
+          echo 'echo 3:' $PWD
           npm install
           npm audit fix
 
@@ -45,13 +48,15 @@ jobs:
 
           # Cordova prepare, copy DIST output from Vue to Cordova
           cd www
+          echo 'echo 4:' $PWD
           if [ -d www ]; then
             rm -rf www
           fi
           cd ..
+          echo 'echo 5:' $PWD
           cp -rf ./dist/. ./$CORDOVA_APP_NAME/www
           cp -rf ./_tmp/cordova/build.json ."/"$CORDOVA_APP_NAME
           cordova prepare ios
-          
+
 
 
