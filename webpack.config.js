@@ -2,7 +2,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const VueLoaderPlugin = require('vue-loader/lib/plugin');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './vue/main.js',
   output: {
     path: __dirname + '/dist'
   },
@@ -15,8 +15,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/public/index.html',
-      favicon: './src/public/favicon.ico',
+      template: './vue/public/index.html',
+      favicon: './vue/public/favicon.ico',
     }),
     new VueLoaderPlugin(),
   ]
