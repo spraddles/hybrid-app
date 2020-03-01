@@ -59,13 +59,15 @@ jobs:
           # Cordova prepare, copy DIST output from Vue to Cordova
           cd $CORDOVA_APP_NAME/www
           echo 'echo 4:' $PWD
+          #[echo 4: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp/cordova/www]
           if [ -d www ]; then
             rm -rf www
           fi
           cd ..
           echo 'echo 5:' $PWD
-          cp -rf ./dist/. ./$CORDOVA_APP_NAME/www
-          cp -rf ./_tmp/cordova/build.json ."/"$CORDOVA_APP_NAME
+          #[echo 5: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp/cordova]
+          cp -rf ../dist/. ./$CORDOVA_APP_NAME/www
+          cp -rf ../_tmp/cordova/build.json ."/"$CORDOVA_APP_NAME
           cordova prepare ios
 
 
