@@ -80,7 +80,7 @@ jobs:
           CORDOVA_TOKEN=${{ secrets.PHONEGAP_OATH_TOKEN }}
           CORDOVA_APP_ID="$(curl https://build.phonegap.com/api/v1/apps?auth_token=$CORDOVA_TOKEN | jq -r '.apps[].id')"
           if [[ $CORDOVA_APP_ID > 0 ]]
-          then 
+          then
             # fix ref: https://github.com/phonegap/phonegap-cli/issues/122
             rm -f root/applications/testapp/$CORDOVA_APP_NAME/.cordova/config.json
             curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN

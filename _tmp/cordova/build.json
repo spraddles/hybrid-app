@@ -2,7 +2,7 @@
     "ios": {
         "debug": {
             "codeSignIdentity": "iPhone Developer",
-            "developmentTeam": "${{ secrets.APPLE_TEAM_ID }}",
+            "developmentTeam": "TPTVYTBHA6",
             "packageType": "development",
             "automaticProvisioning": true,
             "buildFlag": [
@@ -13,7 +13,7 @@
         },
         "development": {
             "codeSignIdentity": "iPhone Developer",
-            "developmentTeam": "${{ secrets.APPLE_TEAM_ID }}",
+            "developmentTeam": "TPTVYTBHA6",
             "packageType": "app-store",
             "automaticProvisioning": true,
             "buildFlag": [
@@ -24,7 +24,7 @@
         },
         "release": {
             "codeSignIdentity": "iPhone Distribution",
-            "developmentTeam": "${{ secrets.APPLE_TEAM_ID }}",
+            "developmentTeam": "TPTVYTBHA6",
             "packageType": "app-store",
             "automaticProvisioning": true,
             "buildFlag": [
