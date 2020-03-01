@@ -52,5 +52,6 @@ jobs:
           cp -rf ./dist/. ./$CORDOVA_APP_NAME/www
           cp -rf ./_tmp/cordova/build.json ."/"$CORDOVA_APP_NAME
           cordova prepare ios
+          
 
 
