@@ -22,31 +22,21 @@ jobs:
           sudo npm install -g phonegap
           brew install git
           mkdir applications
-          echo 'echo 1a:' $PWD
-          #[echo 1a: /Users/runner/runners/2.165.2/work/testapp/testapp]
           cd applications
-          echo 'echo 1b:' $PWD
-          #[echo 1b: /Users/runner/runners/2.165.2/work/testapp/testapp/applications]
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
           # Cordova
           cd testapp
-          echo 'echo 1c:' $PWD
-          #[echo 1c: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp]
           cordova telemetry off
           CORDOVA_APP_NAME="cordova"
           CORDOVA_APP_ID="com.testapp.domain"
           cordova create $CORDOVA_APP_NAME $CORDOVA_APP_ID
           cd $CORDOVA_APP_NAME
-          echo 'echo 2:' $PWD 
-          #[echo 2: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp/cordova]
           cordova platform add ios
           #cordova platform add android
 
           # NPM config
           cd ..
-          echo 'echo 3:' $PWD 
-          #[echo 3: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp]
           npm install
           npm audit fix
 
@@ -55,14 +45,10 @@ jobs:
 
           # Cordova prepare, copy DIST output from Vue to Cordova
           cd $CORDOVA_APP_NAME/www
-          echo 'echo 4:' $PWD
-          #[echo 4: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp/cordova/www]
           if [ -d www ]; then
             rm -rf www
           fi
           cd ..
-          echo 'echo 5:' $PWD
-          #[echo 5: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp/cordova]
           cp -rf ../dist/. ./www
           cp -rf ../_tmp/cordova/build.json ./
           cordova prepare ios
@@ -78,19 +64,15 @@ jobs:
           fi
 
           # Phonegap: fix zip upload issue
-          echo 'ONE 1:' $PWD
-          npm list -g | head -1
-          cd /
-          echo 'TWO 2:' $PWD
-          #cd / && cd usr/local/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
-          #sudo rm zip.js
-          #curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
+          cd / && cd usr/local/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
+          sudo rm zip.js
+          curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
 
           # Phonegap: download iTunes IPA file
-          # phonegap remote run ios
-          #phonegap remote run ios > capture_url.txt
-          #PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
-          #wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
+          phonegap remote run ios
+          phonegap remote run ios > capture_url.txt
+          PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
+          wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
 
           ### NOTE TO SELF: 
           # TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
