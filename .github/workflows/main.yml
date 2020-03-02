@@ -80,7 +80,9 @@ jobs:
           # Phonegap: fix zip upload issue
           echo 'ONE 1:' $PWD
           npm list -g | head -1
-          #cd / && cd usr/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
+          cd /
+          echo 'TWO 2:' $PWD
+          #cd / && cd usr/local/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
           #sudo rm zip.js
           #curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
 
