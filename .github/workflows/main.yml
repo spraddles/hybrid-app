@@ -21,6 +21,8 @@ jobs:
           sudo npm install -g cordova
           sudo npm install -g phonegap
           brew install git
+          cd /
+          cd Users/runner
           mkdir applications
           cd applications
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
@@ -74,6 +76,8 @@ jobs:
           curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
 
           # Phonegap: download iTunes IPA file
+          cd /
+          cd Users/runner/applications/testapp/cordova
           phonegap remote run ios
           #phonegap remote run ios > capture_url.txt
           #PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
