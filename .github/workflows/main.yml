@@ -69,7 +69,8 @@ jobs:
           echo 'TWO:' $PWD
           cd usr/local/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
           echo 'THREE:' $PWD
-          #sudo rm zip.js
+          ls -la
+          sudo rm zip.js
           #curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
 
           # Phonegap: download iTunes IPA file
