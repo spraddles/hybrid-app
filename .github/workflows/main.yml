@@ -24,18 +24,15 @@ jobs:
           mkdir applications
           echo 'echo 1a:' $PWD
           #[echo 1a: /Users/runner/runners/2.165.2/work/testapp/testapp]
-
           cd applications
           echo 'echo 1b:' $PWD
           #[echo 1b: /Users/runner/runners/2.165.2/work/testapp/testapp/applications]
-
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
           # Cordova
           cd testapp
           echo 'echo 1c:' $PWD
           #[echo 1c: /Users/runner/runners/2.165.2/work/testapp/testapp/applications/testapp]
-
           cordova telemetry off
           CORDOVA_APP_NAME="cordova"
           CORDOVA_APP_ID="com.testapp.domain"
@@ -70,10 +67,6 @@ jobs:
           cp -rf ../_tmp/cordova/build.json ./
           cordova prepare ios
 
-          echo 'echo BUILD.JSON-start'
-          cat build.json
-          echo 'echo BUILD.JSON-end'
-
           # Phonegap: cloud build
           phonegap analytics off
           phonegap remote login --username ${{ secrets.PHONEGAP_USER_EMAIL }} --password ${{ secrets.PHONEGAP_USER_PASSWORD }}
@@ -81,8 +74,6 @@ jobs:
           CORDOVA_APP_ID="$(curl https://build.phonegap.com/api/v1/apps?auth_token=$CORDOVA_TOKEN | jq -r '.apps[].id')"
           if [[ $CORDOVA_APP_ID > 0 ]]
           then
-            # fix ref: https://github.com/phonegap/phonegap-cli/issues/122
-            rm -f root/applications/testapp/$CORDOVA_APP_NAME/.cordova/config.json
             curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN
           fi
 
@@ -90,6 +81,10 @@ jobs:
           phonegap remote run ios > capture_url.txt
           PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
           wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
+
+          ### NOTE TO SELF: 
+          # TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
+          # with "phonegap remote run ios"
 
 
 
