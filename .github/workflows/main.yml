@@ -78,10 +78,9 @@ jobs:
           # Phonegap: download iTunes IPA file
           cd /
           cd Users/runner/applications/testapp/cordova
-          phonegap remote run ios
-          #phonegap remote run ios > capture_url.txt
-          #PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
-          #wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
+          phonegap remote run ios > capture_url.txt
+          PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
+          wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
 
           ### NOTE TO SELF: 
           # TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
