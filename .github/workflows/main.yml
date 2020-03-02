@@ -70,12 +70,12 @@ jobs:
           # Phonegap: cloud build
           phonegap analytics off
           phonegap remote login --username ${{ secrets.PHONEGAP_USER_EMAIL }} --password ${{ secrets.PHONEGAP_USER_PASSWORD }}
-          #CORDOVA_TOKEN=${{ secrets.PHONEGAP_OATH_TOKEN }}
-          #CORDOVA_APP_ID="$(curl https://build.phonegap.com/api/v1/apps?auth_token=$CORDOVA_TOKEN | jq -r '.apps[].id')"
-          #if [[ $CORDOVA_APP_ID > 0 ]]
-          #then
-          #  curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN
-          #fi
+          CORDOVA_TOKEN=${{ secrets.PHONEGAP_OATH_TOKEN }}
+          CORDOVA_APP_ID="$(curl https://build.phonegap.com/api/v1/apps?auth_token=$CORDOVA_TOKEN | jq -r '.apps[].id')"
+          if [[ $CORDOVA_APP_ID > 0 ]]
+          then
+            curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN
+          fi
 
           # Phonegap: download iTunes IPA file
           #phonegap remote run ios > capture_url.txt
