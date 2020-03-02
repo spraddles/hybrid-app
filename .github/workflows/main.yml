@@ -78,12 +78,14 @@ jobs:
           fi
 
           # Phonegap: fix zip upload issue
-          cd / && cd usr/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
-          sudo rm zip.js
-          curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
+          echo 'ONE 1:' $PWD
+          npm list -g | head -1
+          #cd / && cd usr/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
+          #sudo rm zip.js
+          #curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
 
           # Phonegap: download iTunes IPA file
-          phonegap remote run ios
+          # phonegap remote run ios
           #phonegap remote run ios > capture_url.txt
           #PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
           #wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
