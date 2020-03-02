@@ -77,6 +77,11 @@ jobs:
             curl -X DELETE https://build.phonegap.com/api/v1/apps/$CORDOVA_APP_ID?auth_token=$CORDOVA_TOKEN
           fi
 
+          # Phonegap: fix zip upload issue
+          cd / && cd usr/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
+          sudo rm zip.js
+          curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
+
           # Phonegap: download iTunes IPA file
           phonegap remote run ios
           #phonegap remote run ios > capture_url.txt
