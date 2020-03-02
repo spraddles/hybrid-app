@@ -78,6 +78,7 @@ jobs:
           fi
 
           # Phonegap: download iTunes IPA file
+          phonegap remote run ios
           #phonegap remote run ios > capture_url.txt
           #PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
           #wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
