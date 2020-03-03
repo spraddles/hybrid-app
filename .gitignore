@@ -5,7 +5,7 @@ dist
 node_modules
 
 # Cordova
-cordova
+cordova-app
 
 _tmp/certs
 _tmp/ios/.itmsp
