@@ -22,7 +22,7 @@ jobs:
           sudo npm install -g phonegap
           brew install git
           cd /
-          cd Users/runner
+          cd Users/$USER
           mkdir applications
           cd applications
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
@@ -66,25 +66,18 @@ jobs:
           fi
 
           # Phonegap: fix zip upload issue
-          echo 'ONE:' $PWD
           cd / 
-          echo 'TWO:' $PWD
           cd usr/local/lib/node_modules/phonegap/node_modules/phonegap-build/lib/phonegap-build/create
-          echo 'THREE:' $PWD
-          ls -la
           sudo rm zip.js
           curl -O https://raw.githubusercontent.com/phonegap/node-phonegap-build/80e42cb029d133b15026842b10925cab9272ed77/lib/phonegap-build/create/zip.js
 
           # Phonegap: download iTunes IPA file
           cd /
-          cd Users/runner/applications/testapp/cordova
+          cd Users/$USER/applications/testapp/$CORDOVA_APP_NAME
           phonegap remote run ios > capture_url.txt
           PGB_URL="$(grep -E -o '(http[s]?:\/\/)?([^\/\s]+\/)(.*)' capture_url.txt)"
           wget --user-agent=Mozilla $PGB_URL --output-document=pgb_response_ios.ipa
 
-          ### NOTE TO SELF: 
-          # TypeError [ERR_INVALID_CALLBACK]: Callback must be a function. Received undefined
-          # with "phonegap remote run ios"
 
 
 
