@@ -34,7 +34,7 @@ jobs:
           CORDOVA_APP_DOMAIN="com.testapp.domain"
           CORDOVA_APP_NAME="MyTestApp"
           cordova create $CORDOVA_APP_ID $CORDOVA_APP_DOMAIN $CORDOVA_APP_NAME
-          cd $CORDOVA_APP_NAME
+          cd $CORDOVA_APP_ID
 
 
           # NPM config
