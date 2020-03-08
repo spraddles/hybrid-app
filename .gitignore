@@ -6,6 +6,3 @@ node_modules
 
 # Cordova
 cordova-app
-
-_tmp/certs
-_tmp/ios/.itmsp

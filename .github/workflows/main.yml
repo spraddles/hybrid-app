@@ -57,9 +57,9 @@ jobs:
           cordova build ios
 
           # Fastlane
-          cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios/$CORDOVA_APP_NAME
+          cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
           echo $PWD
-          init fastlane
+          fastlane init
           #gym build
 
 
