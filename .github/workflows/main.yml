@@ -66,8 +66,12 @@ jobs:
 
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
           echo $PWD
-          fastlane init
-          #gym build
+
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD='kozl-vtvl-wdkc-epez'
+          
+          fastlane ios get_certificates
+
+          
 
 
 

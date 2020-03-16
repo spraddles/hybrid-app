@@ -12,10 +12,76 @@
 
 default_platform(:ios)
 
-# fastlane ios testflight
+# fastlane ios sort_out_certificates
 platform :ios do
   	desc "Build iOS"
-	lane :testflight do
-	  build_app(scheme: "MyTestApp")
+	lane :sort_out_certificates do
+
+	  	#get_certificates           	# invokes cert
+	  	#get_provisioning_profile   	# invokes sigh
+
+		create_keychain(
+			name: "MyKeychainName",
+			password: "my_keychain_password",
+			default_keychain: true,
+			unlock: true,
+			timeout: false,
+			lock_when_sleeps: false,
+			require_create: false
+		)
+
+	 	import_certificate(
+	 		certificate_path: "../../../_tmp/ios/certs/ios_development.cer",
+	 		keychain_name: "MyKeychainName",
+	 	)
 	end
+
+	lane :sort_out_provisioning do
+
+		disable_automatic_code_signing
+
+		update_project_provisioning(
+			target_filter: "MyTestApp",
+			xcodeproj: "MyTestApp.xcodeproj",
+			profile: "../../../_tmp/ios/certs/Testapp_profile.mobileprovision", # optional if you use sigh
+			build_configuration: "Development",
+			code_signing_identity: "iPhone Development" # optionally specify the codesigning identity
+		)
+
+		update_project_team(
+			path: "MyTestApp.xcodeproj",
+			teamid: "TPTVYTBHA6"
+		)
+	end
+
+	lane :build_my_app do
+		build_app(
+			scheme: "MyTestApp",
+			workspace: "MyTestApp.xcworkspace",
+			export_method: 'development', 
+			export_options: {'signingStyle' => 'manual', 
+				provisioningProfiles: { 
+					provisioningProfiles: { "com.testapp.domain" => "Testapp_profile" } 
+				}
+			},
+			configuration: "Debug",
+			output_directory: "../../../_tmp/fastlane", # Destination directory. Defaults to current directory.
+			output_name: "my-test-app.ipa",       # specify the name of the .ipa file to generate (including file extension)
+		)
+	end
+
+	lane :upload_my_app do
+		## NOTE:
+		# Use an Application Specific Password to upload
+		##
+		upload_to_testflight(
+			skip_submission: true, 		# to only upload the build
+			beta_app_feedback_email: "support@email.com",
+			beta_app_description: "This is a description of my app",
+			demo_account_required: false,
+			notify_external_testers: false,
+			changelog: "This is my changelog of things that have changed in a log"
+		)
+	end
+
 end
