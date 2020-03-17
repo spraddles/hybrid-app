@@ -17,28 +17,22 @@ platform :ios do
   	desc "Build iOS"
 	lane :sort_out_certificates do
 
-	  	#get_certificates           	# invokes cert
+	  	get_certificates(	# invokes cert
+			development: true,
+			username: "badsprad@icloud.com"
+	  	)	
+
+
+
 	  	#get_provisioning_profile   	# invokes sigh
 
-		create_keychain(
-			name: "MyKeychainName",
-			password: "my_keychain_password",
-			default_keychain: true,
-			unlock: true,
-			timeout: false,
-			lock_when_sleeps: false,
-			require_create: false
-		)
-
-	 	import_certificate(
-	 		certificate_path: "../../../_tmp/ios/certs/ios_development.cer",
-	 		keychain_name: "MyKeychainName",
-	 	)
+	 	#import_certificate(
+	 	#	certificate_path: "../../../_tmp/ios/certs/ios_development.cer",
+	 	#	keychain_name: "MyKeychainName",
+	 	#)
 	end
 
 	lane :sort_out_provisioning do
-
-		disable_automatic_code_signing
 
 		update_project_provisioning(
 			target_filter: "MyTestApp",
@@ -55,15 +49,18 @@ platform :ios do
 	end
 
 	lane :build_my_app do
+
+		#disable_automatic_code_signing
+
 		build_app(
+			skip_profile_detection: true,
 			scheme: "MyTestApp",
 			workspace: "MyTestApp.xcworkspace",
 			export_method: 'development', 
 			export_options: {'signingStyle' => 'manual', 
-				provisioningProfiles: { 
-					provisioningProfiles: { "com.testapp.domain" => "Testapp_profile" } 
-				}
+				provisioningProfiles: { "com.testapp.domain" => "Testapp_profile" }
 			},
+			codesigning_identity: "iPhone Developer",
 			configuration: "Debug",
 			output_directory: "../../../_tmp/fastlane", # Destination directory. Defaults to current directory.
 			output_name: "my-test-app.ipa",       # specify the name of the .ipa file to generate (including file extension)

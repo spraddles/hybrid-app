@@ -1,0 +1,22 @@
+This is a how to guide on certificates for Apple:
+
+////////////////////////////////////////
+
+-- APPLE --
+
+CSR:
+PC > keychain > create CSR > save to disk > [upload CSR]
+ref:https://help.apple.com/developer-account/#/devbfa00fef7
+
+Certificate:
+Apple > create cert > [upload CSR] > download cert
+
+Provisioning Profile:
+Apple > create profile > link to app ID > [link to certificate] > link to device (if dev not dist) > download profile
+
+
+////////////////////////////////////////
+
+-- FASTLANE --
+
+import cert
