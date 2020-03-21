@@ -1,12 +1,53 @@
 This is a how to guide on certificates for Apple:
 
+
+////////////////////////////////////////
+
+-- STEPS --
+
+Local:
+-create CSR
+-private key stays on local
+-public key is sent to Apple (with CSR)
+
+Developer Portal:
+-create certificate in Developer portal
+-upload CSR
+-download cert
+
+Local:
+-add cert to Keychain
+-links back with your private key
+
+Local:
+-can export final cert to disk
+-format is P12
+-encrypt with password (optional)
+-this is a private key
+
+Developer Portal:
+-create provisioning profile
+-download profile
+-comes in .mobileprovision format
+
+
+
+
+
+
+
+
+
+
+
+
 ////////////////////////////////////////
 
 -- APPLE --
 
 CSR:
 PC > keychain > create CSR > save to disk > [upload CSR]
-ref:https://help.apple.com/developer-account/#/devbfa00fef7
+ref: https://help.apple.com/developer-account/#/devbfa00fef7
 
 Certificate:
 Apple > create cert > [upload CSR] > download cert
@@ -19,4 +60,8 @@ Apple > create profile > link to app ID > [link to certificate] > link to device
 
 -- FASTLANE --
 
-import cert
+
+remove existing certs
+create new cert
+
+

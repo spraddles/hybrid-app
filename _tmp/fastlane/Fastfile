@@ -17,10 +17,24 @@ platform :ios do
   	desc "Build iOS"
 	lane :sort_out_certificates do
 
+		create_keychain(
+			name: "my_keychaing",
+			password: "my_keychain_password",
+			default_keychain: true,
+			unlock: true,
+			timeout: false,
+			add_to_search_list: true
+		)
+
 	  	get_certificates(	# invokes cert
 			development: true,
-			username: "badsprad@icloud.com"
-	  	)	
+			type: "iOS App Development",
+			username: "badsprad@icloud.com",
+			default_platform: "ios",
+			platform: "ios",
+			force: false,
+			generate_apple_certs: true
+	  	)
 
 
 
