@@ -29,9 +29,8 @@ platform :ios do
 	  	get_certificates(	# invokes cert
 			generate_apple_certs: true,
 			development: true,
-			type: "iOS App Development",
+			#type: "iOS App Development",
 			username: "badsprad@icloud.com",
-			default_platform: "ios",
 			platform: "ios",
 			force: false
 	  	)
@@ -39,14 +38,15 @@ platform :ios do
 
 	lane :sort_out_provisioning do
 
-		# sigh(force: true)
 		get_provisioning_profile( 	# invokes sigh
+			adhoc: true,
 			developer_id: true,
-			development: true,
-			force: false,
+			force: true,
+			filename: "myFile.mobileprovision",
 			username: "badsprad@icloud.com",
 			# app_identifier: ???
-			platform: "ios"
+			platform: "ios",
+			provisioning_name: "Testapp profile"
 		)
 	end
 
