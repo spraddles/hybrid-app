@@ -17,9 +17,8 @@ jobs:
           # Pre-reqs
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
           brew install node@10
-          brew install fastlane
-          #sudo gem install padrino --no-ri --no-rdoc
-          sudo gem update --system -V
+          sudo bundle install
+          #sudo gem update --system -V
           sudo npm install -g cordova
           sudo npm install -g phonegap
           sudo npm install -g cordova-config-cli
@@ -74,13 +73,13 @@ jobs:
 
           # Fastlane: run
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
-          yes | fastlane match nuke appstore
-          fastlane match appstore
-          fastlane ios get_my_certs
-          fastlane ios get_my_provisioning
-          fastlane ios update_my_provisioning
-          fastlane ios build_my_app
-          fastlane ios upload_my_app
+          yes | bundle exec fastlane match nuke appstore
+          bundle exec fastlane match appstore
+          bundle exec fastlane ios get_my_certs
+          bundle exec fastlane ios get_my_provisioning
+          bundle exec fastlane ios update_my_provisioning
+          bundle exec fastlane ios build_my_app
+          bundle exec fastlane ios upload_my_app
 
           
 
