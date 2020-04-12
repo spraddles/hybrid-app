@@ -1,0 +1,3 @@
+scheme("MyTestApp")
+output_directory("./build")
+output_name("my-test-app.ipa")

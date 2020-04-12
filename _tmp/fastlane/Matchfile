@@ -1,0 +1,5 @@
+git_url("https://2c4566968b8cbc978409ac66dab50aadb6a0423e@github.com/badsprad/testapp-certs.git")
+storage_mode("git")
+username("badsprad@hotmail.com")
+app_identifier("com.testapp.domain")
+team_id("TPTVYTBHA6")

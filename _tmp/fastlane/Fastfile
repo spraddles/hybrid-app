@@ -12,74 +12,74 @@
 
 default_platform(:ios)
 
-# fastlane ios sort_out_certificates
 platform :ios do
+
   	desc "Build iOS"
-	lane :sort_out_certificates do
 
-		# Notes:
-		# ref: http://shashikantjagtap.net/ios-code-signing-5-signing-ios-app/
+	lane :get_my_certs do
 
-		# "get_certificates" will:
-		# - Create a new private key
-		# - Create a new signing request (CSR)
-		# - Generate, downloads and installs the certificate
-		# - Import all the generated files into your Keychain
+		increment_build_number(
+			build_number: Time.now.to_i # Ruby method
+		)
 
-	  	get_certificates(	# invokes cert
-			generate_apple_certs: true,
-			development: true,
-			#type: "iOS App Development",
+		get_certificates( # invokes cert
 			username: "badsprad@icloud.com",
-			platform: "ios",
-			force: false
-	  	)
+			team_id: "TPTVYTBHA6",
+			development: false
+		)
 	end
 
-	lane :sort_out_provisioning do
+	lane :get_my_provisioning do
+		get_provisioning_profile( # invokes sigh
+			username: "badsprad@icloud.com"
 
-		get_provisioning_profile( 	# invokes sigh
-			adhoc: true,
-			developer_id: true,
-			force: true,
-			filename: "myFile.mobileprovision",
-			username: "badsprad@icloud.com",
-			# app_identifier: ???
-			platform: "ios",
-			provisioning_name: "Testapp profile"
 		)
+	end
+
+	lane :update_my_provisioning do
+
+		update_code_signing_settings(
+			use_automatic_signing: false,
+			path: "MyTestApp.xcodeproj"
+		)
+
+		update_project_provisioning(
+			xcodeproj: "MyTestApp.xcodeproj",
+			profile: "Appstore_com.testapp.domain.mobileprovision",
+			# build_configuration: "Release",
+			code_signing_identity: "iPhone Distribution: My Company Test App"
+		)
+
+		update_project_team(
+			path: "MyTestApp.xcodeproj",
+			teamid: "TPTVYTBHA6"
+		)
+
 	end
 
 	lane :build_my_app do
 
-		#disable_automatic_code_signing
-
 		build_app(
-			skip_profile_detection: false,
-			scheme: "MyTestApp",
-			workspace: "MyTestApp.xcworkspace",
-			export_method: 'development', 
-			export_options: {'signingStyle' => 'manual', 
-				provisioningProfiles: { "com.testapp.domain" => "Testapp_profile" }
-			},
-			codesigning_identity: "iPhone Developer",
-			configuration: "Development",
-			output_directory: "../../../_tmp/fastlane", # Destination directory. Defaults to current directory.
-			output_name: "my-test-app.ipa",       # specify the name of the .ipa file to generate (including file extension)
+			export_method: "app-store", #app-store, ad-hoc, package, enterprise, development, developer-id
 		)
+
 	end
 
 	lane :upload_my_app do
-		## NOTE:
-		# Use an Application Specific Password to upload
-		##
+
+		update_code_signing_settings(
+			use_automatic_signing: false,
+			path: "MyTestApp.xcodeproj"
+		)
+
 		upload_to_testflight(
 			skip_submission: true, 		# to only upload the build
 			beta_app_feedback_email: "support@email.com",
 			beta_app_description: "This is a description of my app",
 			demo_account_required: false,
 			notify_external_testers: false,
-			changelog: "This is my changelog of things that have changed in a log"
+			changelog: "This is my changelog of things that have changed in a log",
+			ipa: "build/my-test-app.ipa"
 		)
 	end
 

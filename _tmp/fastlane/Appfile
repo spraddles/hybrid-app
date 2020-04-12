@@ -1,6 +1,5 @@
 app_identifier("com.testapp.domain") # The bundle identifier of your app
-# apple_id("badsprad@hotmail.com") # Your Apple email address
-
+apple_id("badsprad@icloud.com") # Your Apple email address
 
 # For more information about the Appfile, see:
 # https://docs.fastlane.tools/advanced/#appfile
