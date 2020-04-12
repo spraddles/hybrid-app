@@ -73,7 +73,6 @@ jobs:
           APPLE_TEAM_ID='TPTVYTBHA6'
 
           # Fastlane: run
-          sudo gem cleanup
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
           yes | fastlane match nuke appstore
           fastlane match appstore
