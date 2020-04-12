@@ -71,7 +71,7 @@ jobs:
           FASTLANE_SESSION='$(fastlane spaceauth -u badsprad@icloud.com)'
           APPLE_TEAM_ID='TPTVYTBHA6'
 
-          # Fastlane: run
+          # Fastlane: run 
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
           yes | fastlane match nuke appstore
           fastlane match appstore
