@@ -17,8 +17,7 @@ jobs:
           # Pre-reqs
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
           brew install node@10
-          sudo bundle install
-          #sudo gem update --system -V
+          brew install fastlane
           sudo npm install -g cordova
           sudo npm install -g phonegap
           sudo npm install -g cordova-config-cli
