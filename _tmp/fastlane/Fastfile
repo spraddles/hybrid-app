@@ -1,3 +1,5 @@
+opt_out_usage
+
 # This file contains the fastlane.tools configuration
 # You can find the documentation at https://docs.fastlane.tools
 #
@@ -9,8 +11,6 @@
 
 # Uncomment the line if you want fastlane to automatically update itself
 # update_fastlane
-
-opt_out_usage
 
 default_platform(:ios)
 

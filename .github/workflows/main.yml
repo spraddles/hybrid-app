@@ -72,7 +72,7 @@ jobs:
 
           # Fastlane: run
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
-          yes | fastlane match nuke appstore
+          yes | fastlane match nuke distribution
           fastlane match appstore
           fastlane ios get_my_certs
           fastlane ios get_my_provisioning
