@@ -18,8 +18,10 @@ jobs:
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
           brew install node@10
           brew install fastlane
+          sudo gem update
           sudo npm install -g cordova
           sudo npm install -g phonegap
+          sudo npm install -g cordova-config-cli
           brew install git
           cd /
           cd Users/$USER
@@ -35,6 +37,7 @@ jobs:
           CORDOVA_APP_NAME="MyTestApp"
           cordova create $CORDOVA_APP_ID $CORDOVA_APP_DOMAIN $CORDOVA_APP_NAME
           cd $CORDOVA_APP_ID
+          npm install cordova-config
 
           # NPM: config
           cd / && cd Users/$USER/applications/testapp
@@ -53,27 +56,32 @@ jobs:
           cp -rf ../dist/. ./www
           cp -rf ../_tmp/cordova/build.json ./
           cordova platform add ios
-          #cordova platform add android
+          cordova-config add preference WKWebViewOnly true
           cordova build ios
 
           # Fastlane: copy setup files & run
           cd / && cd Users/$USER/applications/testapp/_tmp
           cp -rf ./fastlane ../$CORDOVA_APP_ID/platforms/ios
 
+          # Fastlane: variables
+          FASTLANE_USER='badsprad@icloud.com'
+          FASTLANE_PASSWORD='b_Sprad83'
+          MATCH_PASSWORD='b_Sprad83'
+          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD='slnc-safb-iptf-luln'
+          FASTLANE_SESSION='$(fastlane spaceauth -u badsprad@icloud.com)'
+          APPLE_TEAM_ID='TPTVYTBHA6'
 
-
-
-
+          # Fastlane: run
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
-          echo $PWD
+          yes | fastlane match nuke appstore
+          fastlane match appstore
+          fastlane ios get_my_certs
+          fastlane ios get_my_provisioning
+          fastlane ios update_my_provisioning
+          fastlane ios build_my_app
+          fastlane ios upload_my_app
 
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD='kozl-vtvl-wdkc-epez'
           
-          fastlane ios get_certificates
-
-          
-
-
 
 
 
