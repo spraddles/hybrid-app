@@ -18,7 +18,8 @@ jobs:
           sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
           brew install node@10
           brew install fastlane
-          sudo gem update
+          #sudo gem install padrino --no-ri --no-rdoc
+          sudo gem update --system -V
           sudo npm install -g cordova
           sudo npm install -g phonegap
           sudo npm install -g cordova-config-cli
