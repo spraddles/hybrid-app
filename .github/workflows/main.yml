@@ -65,6 +65,7 @@ jobs:
           # Fastlane: variables
           FASTLANE_USER='badsprad@icloud.com'
           FASTLANE_PASSWORD='b_Sprad83'
+
           MATCH_PASSWORD='b_Sprad83'
           FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD='slnc-safb-iptf-luln'
           FASTLANE_SESSION='$(fastlane spaceauth -u badsprad@icloud.com)'
@@ -72,22 +73,13 @@ jobs:
 
           # Fastlane: run
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
-          yes | fastlane match nuke distribution
+          fastlane match nuke distribution
           fastlane match appstore
           fastlane ios get_my_certs
           fastlane ios get_my_provisioning
           fastlane ios update_my_provisioning
           fastlane ios build_my_app
-          fastlane ios upload_my_app
-
-          
-
-
-
-
-
-
-
+          #fastlane ios upload_my_app
 
 
 
