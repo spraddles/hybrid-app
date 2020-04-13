@@ -20,8 +20,12 @@ platform :ios do
 
   	lane :create_my_keychain do
 
+		increment_build_number(
+			build_number: Time.now.to_i # Ruby method
+		)
+
 		create_keychain(
-			name: "fastlane_keychain",
+			name: name: "fastlane_keychain",
 			default_keychain: true,
 			unlock: true,
 			password: "b_Sprad83",
@@ -29,13 +33,16 @@ platform :ios do
 			#default_keychain: true,
 			add_to_search_list: true
 		)
+
+		unlock_keychain(
+			path: "fastlane_keychain",
+			password: "b_Sprad83",
+			add_to_search_list: true,
+			set_default: true
+		)
   	end
 
 	lane :get_my_certs do
-
-		increment_build_number(
-			build_number: Time.now.to_i # Ruby method
-		)
 
 		get_certificates( # invokes cert
 			username: "badsprad@icloud.com",
@@ -46,6 +53,7 @@ platform :ios do
 	end
 
 	lane :get_my_provisioning do
+		
 		get_provisioning_profile( # invokes sigh
 			username: "badsprad@icloud.com"
 		)
@@ -69,7 +77,6 @@ platform :ios do
 			path: "MyTestApp.xcodeproj",
 			teamid: "TPTVYTBHA6"
 		)
-
 	end
 
 	lane :build_my_app do
@@ -77,7 +84,6 @@ platform :ios do
 		build_app(
 			export_method: "app-store", #app-store, ad-hoc, package, enterprise, development, developer-id
 		)
-
 	end
 
 	lane :upload_my_app do
@@ -99,8 +105,11 @@ platform :ios do
 	end
 
 	lane :delete_my_keychain do
+
 		delete_keychain(
 			name: "fastlane_keychain"
 			#path: XXX
 		)
+	end
+
 end
