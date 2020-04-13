@@ -40,14 +40,14 @@ platform :ios do
 		get_certificates( # invokes cert
 			username: "badsprad@icloud.com",
 			team_id: "TPTVYTBHA6",
-			development: false
+			development: false,
+			keychain_password: "b_Sprad83"
 		)
 	end
 
 	lane :get_my_provisioning do
 		get_provisioning_profile( # invokes sigh
 			username: "badsprad@icloud.com"
-
 		)
 	end
 
@@ -103,5 +103,4 @@ platform :ios do
 			name: "fastlane_keychain"
 			#path: XXX
 		)
-
 end
