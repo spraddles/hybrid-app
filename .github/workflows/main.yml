@@ -62,14 +62,6 @@ jobs:
           cd / && cd Users/$USER/applications/testapp/_tmp
           cp -rf ./fastlane ../$CORDOVA_APP_ID/platforms/ios
 
-          # Fastlane: variables
-          FASTLANE_USER='badsprad@icloud.com'
-          FASTLANE_PASSWORD='b_Sprad83'
-          MATCH_PASSWORD='b_Sprad83'
-          FASTLANE_APPLE_APPLICATION_SPECIFIC_PASSWORD='slnc-safb-iptf-luln'
-          FASTLANE_SESSION='$(fastlane spaceauth -u badsprad@icloud.com)'
-          APPLE_TEAM_ID='TPTVYTBHA6'
-
           # Fastlane: run
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
           fastlane match nuke distribution
