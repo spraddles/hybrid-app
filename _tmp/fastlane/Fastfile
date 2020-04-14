@@ -54,14 +54,17 @@ platform :ios do
 
 		update_code_signing_settings(
 			use_automatic_signing: false,
-			path: "MyTestApp.xcodeproj"
+			path: "MyTestApp.xcodeproj",
+			team_id: "TPTVYTBHA6",
+			code_sign_identity: "iPhone Distribution",
+			profile_name: "Appstore_com.testapp.domain.mobileprovision"
 		)
 
 		update_project_provisioning(
 			xcodeproj: "MyTestApp.xcodeproj",
 			profile: "Appstore_com.testapp.domain.mobileprovision",
 			# build_configuration: "Release",
-			code_signing_identity: "iPhone Distribution: My Company Test App"
+			code_signing_identity: "iPhone Distribution"
 		)
 
 		update_project_team(
