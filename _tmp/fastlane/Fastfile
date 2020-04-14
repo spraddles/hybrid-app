@@ -31,7 +31,7 @@ platform :ios do
 			unlock: true,
 			password: "b_Sprad83",
 			timeout: 3600,
-			#default_keychain: true,
+			default_keychain: true,
 			add_to_search_list: true,
 			require_create: true,
 		)
