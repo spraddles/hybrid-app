@@ -14,13 +14,13 @@ default_platform(:ios)
 
 platform :ios do
 
-	opt_out_usage
-
 	#setup_ci( #force: true)
 
   	desc "Build iOS"
 
   	lane :create_my_keychain do
+
+  		opt_out_usage
 
 		# sh("security list-keychains -d user")
 
@@ -42,8 +42,8 @@ platform :ios do
 	lane :get_my_provisioning do
 
 		get_provisioning_profile( # invokes sigh
+			team_id: "TPTVYTBHA6",
 			username: "badsprad@icloud.com",
-			developer_id: false,
 			development: false,
 			provisioning_name: "Appstore_com.testapp.domain.mobileprovision"
 			# platform: "ios"
