@@ -70,7 +70,7 @@ jobs:
           fastlane ios get_my_provisioning
           fastlane ios update_my_provisioning
           fastlane ios build_my_app
-          #fastlane ios upload_my_app
+          fastlane ios upload_my_app
           fastlane ios delete_my_keychain
 
 

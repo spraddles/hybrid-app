@@ -14,14 +14,12 @@ default_platform(:ios)
 
 platform :ios do
 
-	#setup_ci( #force: true)
-
-  	desc "Build iOS"
+	desc "Build iOS"
 
   	lane :create_my_keychain do
 
-  		opt_out_usage
-
+		opt_out_usage
+		#setup_ci( #force: true)
 		# sh("security list-keychains -d user")
 
 		increment_build_number(
@@ -82,10 +80,10 @@ platform :ios do
 
 	lane :upload_my_app do
 
-		update_code_signing_settings(
-			use_automatic_signing: false,
-			path: "MyTestApp.xcodeproj"
-		)
+		#update_code_signing_settings(
+		#	use_automatic_signing: false,
+		#	path: "MyTestApp.xcodeproj"
+		#)
 
 		upload_to_testflight(
 			skip_submission: true, 		# to only upload the build
