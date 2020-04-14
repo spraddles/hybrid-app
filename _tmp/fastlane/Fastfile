@@ -1,5 +1,3 @@
-opt_out_usage
-
 # This file contains the fastlane.tools configuration
 # You can find the documentation at https://docs.fastlane.tools
 #
@@ -16,6 +14,10 @@ default_platform(:ios)
 
 platform :ios do
 
+	opt_out_usage
+
+	#setup_ci( #force: true)
+
   	desc "Build iOS"
 
   	lane :create_my_keychain do
@@ -31,7 +33,7 @@ platform :ios do
 			unlock: true,
 			password: "b_Sprad83",
 			timeout: 3600,
-			default_keychain: true,
+			#default_keychain: true,
 			add_to_search_list: true,
 			require_create: true,
 		)
