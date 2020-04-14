@@ -42,7 +42,11 @@ platform :ios do
 	lane :get_my_provisioning do
 
 		get_provisioning_profile( # invokes sigh
-			username: "badsprad@icloud.com"
+			username: "badsprad@icloud.com",
+			developer_id: false,
+			development: false,
+			provisioning_name: "Appstore_com.testapp.domain.mobileprovision"
+			# platform: "ios"
 		)
 	end
 
