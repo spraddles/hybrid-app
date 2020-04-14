@@ -20,37 +20,23 @@ platform :ios do
 
   	lane :create_my_keychain do
 
+		# sh("security list-keychains -d user") 
+
 		increment_build_number(
 			build_number: Time.now.to_i # Ruby method
 		)
 
 		create_keychain(
-			name: name: "fastlane_keychain",
-			default_keychain: true,
+			name: "my_fastlane_keychain",
 			unlock: true,
 			password: "b_Sprad83",
 			timeout: 3600,
 			#default_keychain: true,
-			add_to_search_list: true
-		)
-
-		unlock_keychain(
-			path: "fastlane_keychain",
-			password: "b_Sprad83",
 			add_to_search_list: true,
-			set_default: true
+			require_create: true,
 		)
+
   	end
-
-	lane :get_my_certs do
-
-		get_certificates( # invokes cert
-			username: "badsprad@icloud.com",
-			team_id: "TPTVYTBHA6",
-			development: false,
-			keychain_password: "b_Sprad83"
-		)
-	end
 
 	lane :get_my_provisioning do
 
@@ -107,8 +93,7 @@ platform :ios do
 	lane :delete_my_keychain do
 
 		delete_keychain(
-			name: "fastlane_keychain",
-			path: "fastlane_keychain"
+			name: "my_fastlane_keychain",
 		)
 	end
 

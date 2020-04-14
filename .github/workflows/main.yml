@@ -64,10 +64,9 @@ jobs:
 
           # Fastlane: run
           cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
+          fastlane ios create_my_keychain
           fastlane match nuke distribution
           fastlane match appstore
-          fastlane ios create_my_keychain
-          fastlane ios get_my_certs
           fastlane ios get_my_provisioning
           fastlane ios update_my_provisioning
           fastlane ios build_my_app
