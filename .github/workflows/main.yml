@@ -21,7 +21,7 @@ jobs:
           sudo npm install -g cordova
           sudo npm install -g phonegap
           sudo npm install -g cordova-config-cli
-          brew install git
+          #brew install git (already installed on CI maching??)
           cd /
           cd Users/$USER
           mkdir applications
