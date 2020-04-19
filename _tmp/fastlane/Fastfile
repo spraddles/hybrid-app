@@ -80,11 +80,6 @@ platform :ios do
 
 	lane :upload_my_app do
 
-		#update_code_signing_settings(
-		#	use_automatic_signing: false,
-		#	path: "MyTestApp.xcodeproj"
-		#)
-
 		upload_to_testflight(
 			skip_submission: true, 		# to only upload the build
 			beta_app_feedback_email: "support@email.com",
@@ -92,7 +87,10 @@ platform :ios do
 			demo_account_required: false,
 			notify_external_testers: false,
 			changelog: "This is my changelog of things that have changed in a log",
-			ipa: "build/my-test-app.ipa"
+			ipa: "build/my-test-app.ipa",
+			skip_waiting_for_build_processing: true,
+			notify_external_testers: true,
+			email: "badsprad@icloud.com" # tester details
 		)
 	end
 
