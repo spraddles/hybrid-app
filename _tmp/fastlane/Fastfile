@@ -90,7 +90,8 @@ platform :ios do
 			ipa: "build/my-test-app.ipa",
 			skip_waiting_for_build_processing: true,
 			notify_external_testers: true,
-			email: "badsprad@icloud.com" # tester details
+			email: "badsprad@hotmail.com", # tester details
+			uses_non_exempt_encryption: false # to avoid 'non-compliance issue in TestFlight'
 		)
 	end
 
