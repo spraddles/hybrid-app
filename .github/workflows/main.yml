@@ -15,69 +15,16 @@ jobs:
         run: |
 
           # Pre-reqs
-          sh -c "$(curl -fsSL https://raw.githubusercontent.com/Linuxbrew/install/master/install.sh)"
           #brew install node@10
 
 
           sudo npm install --unsafe-perm=true --allow-root
 
-
           brew install fastlane
+          
           sudo npm install -g cordova
           sudo npm install -g phonegap
           sudo npm install -g cordova-config-cli
-          #brew install git (already installed on CI maching??)
-          cd /
-          cd Users/$USER
-          mkdir applications
-          cd applications
-          git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
-
-          # Cordova: config
-          cd / && cd Users/$USER/applications/testapp
-          cordova telemetry off
-          CORDOVA_APP_ID="cordova-app"
-          CORDOVA_APP_DOMAIN="com.testapp.domain"
-          CORDOVA_APP_NAME="MyTestApp"
-          cordova create $CORDOVA_APP_ID $CORDOVA_APP_DOMAIN $CORDOVA_APP_NAME
-          cd $CORDOVA_APP_ID
-          npm install cordova-config
-
-          # NPM: config
-          cd / && cd Users/$USER/applications/testapp
-          npm install
-          #npm audit fix
-
-          # Vue: webpack build
-          npm run webpack-build
-
-          # Cordova: prepare & copy DIST output from Vue to Cordova
-          cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/www
-          if [ -d www ]; then
-            rm -rf www
-          fi
-          cd ..
-          cp -rf ../dist/. ./www
-          cp -rf ../_tmp/cordova/build.json ./
-          cordova platform add ios
-          cordova-config add preference WKWebViewOnly true
-          cordova build ios
-
-          # Fastlane: copy setup files & run
-          cd / && cd Users/$USER/applications/testapp/_tmp
-          cp -rf ./fastlane ../$CORDOVA_APP_ID/platforms/ios
-
-          # Fastlane: run
-          cd / && cd Users/$USER/applications/testapp/$CORDOVA_APP_ID/platforms/ios
-          #fastlane ios create_my_keychain
-          #fastlane match nuke distribution
-          #fastlane match appstore
-          #fastlane ios get_my_provisioning
-          #fastlane ios update_my_provisioning
-          #fastlane ios build_my_app
-          #fastlane ios upload_my_app
-          #fastlane ios delete_my_keychain
-
 
 
 
