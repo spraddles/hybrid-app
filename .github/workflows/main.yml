@@ -23,6 +23,8 @@ jobs:
           cd applications
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
+          cd testapp
+
           sudo npm install --unsafe-perm=true --allow-root
 
           brew install fastlane
