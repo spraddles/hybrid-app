@@ -17,11 +17,16 @@ jobs:
           # Pre-reqs
           #brew install node@10
 
+          cd /
+          cd Users/$USER
+          mkdir applications
+          cd applications
+          git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
 
           sudo npm install --unsafe-perm=true --allow-root
 
           brew install fastlane
-          
+
           sudo npm install -g cordova
           sudo npm install -g phonegap
           sudo npm install -g cordova-config-cli
