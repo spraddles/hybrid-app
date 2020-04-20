@@ -1,6 +1,6 @@
 <template>
 
-  <f7-app :params="{ theme: 'ios', name: 'My App', id: 'com.demoapp.test' }">
+  <f7-app :params="{ theme: 'ios', name: 'My App', id: 'com.testapp.domain' }">
 
     <f7-page>
 

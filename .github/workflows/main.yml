@@ -41,7 +41,7 @@ jobs:
           # NPM: config
           cd / && cd Users/$USER/applications/testapp
           npm install
-          npm audit fix
+          #npm audit fix
 
           # Vue: webpack build
           npm run webpack-build

@@ -2,14 +2,11 @@
 import Vue from 'vue';
 import App from './views/main.vue';
 
-import Framework7 from 'framework7';
+import Framework7 from 'framework7/framework7.esm.bundle.js';
 import 'framework7/css/framework7.bundle.css';
-import 'framework7/js/framework7.bundle.js';
 
 import F7vue from 'framework7-vue';
-import 'framework7-vue/framework7-vue.bundle.js';
-
-
+//import 'framework7-vue/framework7-vue.bundle.js';
 
 
 // register component
@@ -30,9 +27,9 @@ var app = new Vue({
 	// vue init
     el: '#app',
     render: h => h(App),
-    data: {
-        status: false
-    },
+	//router, # for later
+	//store, # for later
+	
     // cordova init
     methods:{
         init:function() {
@@ -46,7 +43,8 @@ var app = new Vue({
 	}
 })
 
-document.addEventListener('deviceready', app.init);
-
+function onLoad() {
+    document.addEventListener("deviceready", onDeviceReady, false);
+}
 
 
