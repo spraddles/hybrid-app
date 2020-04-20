@@ -22,7 +22,7 @@ jobs:
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
           cd testapp
 
-          sudo npm install -g --unsafe-perm --allow-root
+          #sudo npm install -g --unsafe-perm --allow-root
 
           sudo node-gyp rebuild -g --unsafe-perm
           
