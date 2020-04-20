@@ -23,13 +23,12 @@ jobs:
           cd testapp
 
           #sudo npm install -g --unsafe-perm --allow-root
-
-          yarn upgrade
-
           #sudo node-gyp rebuild -g --unsafe-perm
+
+          npm install
           
           sudo npm install -g cordova
           sudo npm install -g phonegap
           sudo npm install -g cordova-config-cli
 
-          brew install fastlane
+          #brew install fastlane
