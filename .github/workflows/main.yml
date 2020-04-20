@@ -23,6 +23,8 @@ jobs:
           cd testapp
 
           sudo npm install -g --unsafe-perm --allow-root
+
+          sudo node-gyp rebuild -g --unsafe-perm
           
           sudo npm install -g cordova
           sudo npm install -g phonegap
