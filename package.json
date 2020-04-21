@@ -33,5 +33,8 @@
     "vue-template-compiler": "^2.6.11",
     "cordova-plugin-whitelist": "^1.3.4",
     "serve": "^11.3.0"
+  },
+  "resolutions": {
+    "**/fsevents": "^1.2.9"
   }
 }
