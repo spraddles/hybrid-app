@@ -24,10 +24,12 @@ jobs:
 
           #sudo npm install -g --unsafe-perm --allow-root
           #sudo node-gyp rebuild -g --unsafe-perm
+          #sudo npm install -g node-gyp --unsafe-perm 
+
+          npm install -g n
+          n 11.15.0
 
           npm install
-
-          #sudo npm install -g node-gyp --unsafe-perm 
           
           sudo npm install -g cordova
           sudo npm install -g phonegap
