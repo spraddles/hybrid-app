@@ -27,7 +27,7 @@ jobs:
           #sudo npm install -g node-gyp --unsafe-perm 
 
           sudo npm install -g n --unsafe-perm --allow-root
-          n 11.15.0
+          sudo n 11.15.0
 
           npm install
           
