@@ -27,7 +27,7 @@ jobs:
 
           npm install
 
-          #sudo npm install -g node-gyp --unsafe-perm
+          #sudo npm install -g node-gyp --unsafe-perm 
           
           sudo npm install -g cordova
           sudo npm install -g phonegap
