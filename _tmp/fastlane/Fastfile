@@ -81,7 +81,7 @@ platform :ios do
 	lane :upload_my_app do
 
 		upload_to_testflight(
-			apple_id: "badsprad@icloud.com",
+			apple_id: "1493360317",
 			skip_submission: true, 		# to only upload the build
 			beta_app_feedback_email: "support@email.com",
 			beta_app_description: "This is a description of my app",
