@@ -22,14 +22,13 @@ jobs:
           git clone https://${{ secrets.GITHUB_REPO_TOKEN }}@github.com/badsprad/testapp.git
           cd testapp
 
-          xcode-select --install
-
+          #xcode-select --install
           #sudo npm install -g --unsafe-perm --allow-root
           #sudo node-gyp rebuild -g --unsafe-perm
           #sudo npm install -g node-gyp --unsafe-perm 
 
-          #sudo npm install -g n --unsafe-perm --allow-root
-          #sudo n 11.15.0
+          sudo npm install -g n --unsafe-perm --allow-root
+          sudo n 10.20.1
 
           npm install
           
