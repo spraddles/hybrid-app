@@ -20,7 +20,6 @@ jobs:
           brew install fastlane
           sudo npm install -g cordova
           sudo npm install -g phonegap
-          sudo npm install -g cordova-config-cli
           cd /
           cd Users/$USER
           mkdir applications
@@ -35,7 +34,6 @@ jobs:
           CORDOVA_APP_NAME="MyTestApp"
           cordova create $CORDOVA_APP_ID $CORDOVA_APP_DOMAIN $CORDOVA_APP_NAME
           cd $CORDOVA_APP_ID
-          npm install cordova-config
 
           # NPM: config
           cd / && cd Users/$USER/applications/testapp
@@ -53,8 +51,9 @@ jobs:
           cd ..
           cp -rf ../dist/. ./www
           cp -rf ../_tmp/cordova/build.json ./
+          cp -rf ../_tmp/cordova/config.xml ./
           cordova platform add ios
-          cordova-config add preference WKWebViewOnly true
+          cordova plugin add cordova-plugin-wkwebview-engine
           cordova build ios
 
           # Fastlane: copy setup files & run
