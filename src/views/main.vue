@@ -1,6 +1,6 @@
 <template>
 
-  <f7-app :params="{ theme: 'ios', name: 'My App', id: 'com.testapp.domain' }">
+  <f7-app :params="{ theme: 'md', name: 'My App', id: 'com.testapp.domain' }">
 
     <f7-page>
 
@@ -114,7 +114,6 @@
 
 </template>
 
-
 <script>
   import { 
     f7App,
@@ -132,7 +131,6 @@
     f7List,
     f7ListItem
   } from 'framework7-vue';
-
   export default {
     components: {
     f7App,
