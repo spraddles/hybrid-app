@@ -3,10 +3,12 @@
 # Node
 dist
 node_modules
+npm-debug.log
+yarn-error.log
 
 # Cordova
 cordova-app
 
 # Mustache
 */*.vue
-src/main.js
+src/main.js*
