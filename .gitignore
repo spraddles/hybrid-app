@@ -7,5 +7,6 @@ node_modules
 # Cordova
 cordova-app
 
-# Vue
+# Mustache
 */*.vue
+src/main.js
