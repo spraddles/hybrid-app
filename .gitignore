@@ -6,3 +6,6 @@ node_modules
 
 # Cordova
 cordova-app
+
+# Vue
+*/*.vue

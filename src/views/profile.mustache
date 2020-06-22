@@ -1,0 +1,120 @@
+<template id="profile-page">
+
+  {{#framework7}}
+  <!-- Example:
+  https://dribbble.com/shots/6341348-Mobile-App-User-Profile-Page/attachments
+  -->
+  <f7-page name="profile-page" class="profile-page">
+
+    <!-- IF_MOBILE -->
+    <f7-navbar class="if-ios">
+        <f7-nav-title>Profile</f7-nav-title>
+        <f7-link slot="left" icon-f7="bars" panel-open="left"></f7-link>
+    </f7-navbar>
+    <f7-navbar class="if-md">
+        <f7-nav-title>Profile</f7-nav-title>
+        <f7-link slot="left" icon-f7="bars" panel-open="left"></f7-link>
+    </f7-navbar>
+    <!-- END -->
+
+    <!-- IF_DESKTOP -->
+    <DesktopMenuSide class="if-aurora"></DesktopMenuSide>
+    <!-- END -->
+
+    <f7-block>
+      <img class="profile-image" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png"></img>
+
+      <f7-row>
+        <f7-col width="33">Name</f7-col>
+        <f7-col width="66">John Smith</f7-col>
+      </f7-row>
+
+      <f7-row>
+        <f7-col width="33">Age</f7-col>
+        <f7-col width="66">26</f7-col>
+      </f7-row>
+
+      <f7-row>
+        <f7-col width="33">Mobile</f7-col>
+        <f7-col width="66">0412 345 678</f7-col>
+      </f7-row>
+
+      <f7-row>
+        <f7-col width="33">Email</f7-col>
+        <f7-col width="66">john.smith@gmail.com</f7-col>
+      </f7-row>
+
+    </f7-block>
+
+    <f7-button raised round outline>Update</f7-button>
+
+    <!-- IF_MOBILE -->
+    <MobileMenuSide class="if-ios"></MobileMenuSide>
+    <MobileMenuSide class="if-md"></MobileMenuSide>
+    <!-- END -->
+
+    <!-- IF_MOBILE -->
+    <MobileMenuBottom class="if-ios"></MobileMenuBottom>
+    <MobileMenuBottom class="if-md"></MobileMenuBottom>
+    <!-- END -->
+
+  </f7-page>
+  {{/framework7}}
+
+</template>
+
+<script>
+
+  {{#framework7}}
+  import MobileMenuSide from '../components/mobile-menu-side.vue';
+  import MobileMenuBottom from '../components/mobile-menu-bottom.vue';
+  import DesktopMenuSide from '../components/desktop-menu-side.vue';
+
+  import { 
+    f7Page,
+    f7Navbar,
+    f7NavTitle,
+    f7Link,
+    f7Block,
+    f7Col,
+    f7Row,
+    f7Button
+  } from "framework7-vue";
+
+  export default {
+
+    name: "UserProfile",
+
+    components: {
+      MobileMenuSide,
+      MobileMenuBottom,
+      DesktopMenuSide,
+      f7Page,
+      f7Navbar,
+      f7NavTitle,
+      f7Link,
+      f7Block,
+      f7Col,
+      f7Row,
+      f7Button
+    }
+  };
+  {{/framework7}}
+</script>
+
+{{#framework7}}
+<style scoped type="text/css">
+    img.profile-image {
+      width: 80%;
+      padding: 20px;
+      text-align: center;
+    }
+    .profile-page .page-content .row {
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    .profile-page .page-content .col-33 {
+      font-weight: bold;
+    }
+</style>
+{{/framework7}}

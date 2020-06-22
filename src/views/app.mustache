@@ -1,0 +1,79 @@
+<template id="main-app">
+
+    {{#framework7}}
+    <f7-app :params="f7params">
+
+        <f7-view main url="/"></f7-view>
+
+    </f7-app>
+    {{/framework7}}
+
+</template>
+
+
+<script>
+{{#framework7}}
+    import {
+        f7App,
+        f7View
+    } from 'framework7-vue';
+
+    // vue files (for routes & components)
+    import LoginPage from './login.vue';
+    import HomePage from './home.vue';
+    import AboutPage from './about.vue';
+    import UserProfile from './profile.vue';
+
+    export default {
+
+        data() {
+            return {
+                f7params: {
+                    //name: App,
+                    theme: 'ios',
+                    mode: 'hash',
+                    routes: [
+                        { path: '/login',
+                        component: LoginPage, 
+                        meta: { bodyClass: 'login-page' }, 
+                        options: { transition: 'f7-fade' } },
+
+                        { path: '/', 
+                        component: HomePage, 
+                        meta: { bodyClass: 'home-page' }, 
+                        options: { transition: 'f7-fade' } },
+
+                        { path: '/about', 
+                        component: AboutPage, 
+                        meta: { bodyClass: 'about-page' }, 
+                        options: { transition: 'f7-fade' } },
+
+                        { path: '/profile', 
+                        component: UserProfile, 
+                        meta: { bodyClass: 'profile-page' }, 
+                        options: { transition: 'f7-fade' } }
+                    ],
+                    name: 'My App',
+                    id: 'com.myapp.test'
+                }
+            }
+        },
+        components: {
+            f7App,
+            f7View
+        }
+    }
+{{/framework7}}
+
+</script>
+
+
+{{#framework7}}
+<style type="text/css">
+    /* applies to all pages */
+    .page-content {
+        padding: 70px 20px 70px 20px;
+    }
+</style>
+{{/framework7}}
+

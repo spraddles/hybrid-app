@@ -1,0 +1,81 @@
+<template id="about-page">
+
+    {{#framework7}}
+    <f7-page name="about-page" class="about-page">
+
+        <!-- IF_MOBILE -->
+        <f7-navbar class="if-ios">
+            <f7-nav-title>About</f7-nav-title>
+            <f7-link slot="left" icon-f7="bars" panel-open="left"></f7-link>
+        </f7-navbar>
+        <f7-navbar class="if-md">
+            <f7-nav-title>About</f7-nav-title>
+            <f7-link slot="left" icon-f7="bars" panel-open="left"></f7-link>
+        </f7-navbar>
+        <!-- END -->
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis elementum urna, id auctor eros. Vestibulum vel vulputate nunc. Vestibulum efficitur est nibh, eget dapibus eros dignissim vel. Praesent congue rhoncus tellus, at eleifend orci ultricies volutpat. Praesent eu elit laoreet, eleifend urna eu, suscipit neque. Sed volutpat massa elementum, vulputate lacus eget, eleifend massa. Aliquam fermentum arcu urna, non dignissim elit faucibus id. Nam interdum ex ac rhoncus finibus. Aenean pulvinar, erat nec consequat aliquam, risus nibh maximus dolor, a maximus orci lacus nec orci. Cras non dui odio. Pellentesque ex purus, dictum non eleifend et, sollicitudin eu eros.</p>
+
+        <p>Integer pretium arcu ut condimentum hendrerit. Donec at semper arcu. Aliquam rhoncus ornare eleifend. Curabitur non mi quam. Curabitur convallis leo ac urna molestie ornare. Integer ut dolor purus. Integer augue lorem, elementum eget pulvinar vitae, consectetur id quam. Mauris vitae lacus eget urna interdum hendrerit quis sit amet enim.</p>
+
+        <p>Vestibulum in eleifend arcu, vitae lobortis justo. In massa sem, maximus eget pellentesque vel, porta id felis. Donec a tellus quis ex malesuada gravida. Maecenas egestas erat porttitor sem feugiat, vitae commodo elit volutpat. In fringilla lorem eu lorem tempor faucibus. In eu varius nibh. Donec libero metus, dignissim ac ligula eu, ultricies consectetur velit.</p>
+
+        <p>Proin efficitur lectus nec nibh molestie, id accumsan est rutrum. Donec pretium porta lectus vel gravida. Vivamus nunc dolor, dignissim eu tortor nec, imperdiet sagittis tellus. Curabitur tempor turpis in enim laoreet sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ultricies interdum purus, vel finibus nulla facilisis et. Pellentesque aliquet tellus nisi, a condimentum mi venenatis nec. Aliquam nec elit massa. Proin molestie tellus eget pharetra vestibulum.</p>
+
+        <p>Proin convallis tempus dolor, at facilisis magna vehicula sed. Nullam hendrerit est vitae scelerisque malesuada. Aenean sollicitudin magna at rhoncus malesuada. Aliquam pellentesque mauris a odio auctor venenatis. Suspendisse malesuada facilisis iaculis. Pellentesque et leo commodo tortor accumsan scelerisque. Duis interdum commodo libero nec vulputate.</p>
+
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi quis elementum urna, id auctor eros. Vestibulum vel vulputate nunc. Vestibulum efficitur est nibh, eget dapibus eros dignissim vel. Praesent congue rhoncus tellus, at eleifend orci ultricies volutpat. Praesent eu elit laoreet, eleifend urna eu, suscipit neque. Sed volutpat massa elementum, vulputate lacus eget, eleifend massa. Aliquam fermentum arcu urna, non dignissim elit faucibus id. Nam interdum ex ac rhoncus finibus. Aenean pulvinar, erat nec consequat aliquam, risus nibh maximus dolor, a maximus orci lacus nec orci. Cras non dui odio. Pellentesque ex purus, dictum non eleifend et, sollicitudin eu eros.</p>
+
+        <p>Integer pretium arcu ut condimentum hendrerit. Donec at semper arcu. Aliquam rhoncus ornare eleifend. Curabitur non mi quam. Curabitur convallis leo ac urna molestie ornare. Integer ut dolor purus. Integer augue lorem, elementum eget pulvinar vitae, consectetur id quam. Mauris vitae lacus eget urna interdum hendrerit quis sit amet enim.</p>
+
+        <p>Vestibulum in eleifend arcu, vitae lobortis justo. In massa sem, maximus eget pellentesque vel, porta id felis. Donec a tellus quis ex malesuada gravida. Maecenas egestas erat porttitor sem feugiat, vitae commodo elit volutpat. In fringilla lorem eu lorem tempor faucibus. In eu varius nibh. Donec libero metus, dignissim ac ligula eu, ultricies consectetur velit.</p>
+
+        <p>Proin efficitur lectus nec nibh molestie, id accumsan est rutrum. Donec pretium porta lectus vel gravida. Vivamus nunc dolor, dignissim eu tortor nec, imperdiet sagittis tellus. Curabitur tempor turpis in enim laoreet sodales. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras ultricies interdum purus, vel finibus nulla facilisis et. Pellentesque aliquet tellus nisi, a condimentum mi venenatis nec. Aliquam nec elit massa. Proin molestie tellus eget pharetra vestibulum.</p>
+
+        <p>Proin convallis tempus dolor, at facilisis magna vehicula sed. Nullam hendrerit est vitae scelerisque malesuada. Aenean sollicitudin magna at rhoncus malesuada. Aliquam pellentesque mauris a odio auctor venenatis. Suspendisse malesuada facilisis iaculis. Pellentesque et leo commodo tortor accumsan scelerisque. Duis interdum commodo libero nec vulputate.</p>
+
+        <!-- IF_MOBILE -->
+        <MobileMenuSide class="if-ios"></MobileMenuSide>
+        <MobileMenuSide class="if-md"></MobileMenuSide>
+        <!-- END -->
+
+        <!-- IF_MOBILE -->
+        <MobileMenuBottom class="if-ios"></MobileMenuBottom>
+        <MobileMenuBottom class="if-md"></MobileMenuBottom>
+        <!-- END -->
+
+    </f7-page>
+    {{/framework7}}
+
+</template>
+
+
+<script>
+
+    {{#framework7}}
+    import MobileMenuSide from '../components/mobile-menu-side.vue';
+    import MobileMenuBottom from '../components/mobile-menu-bottom.vue';
+
+    import {
+        f7Page,
+        f7Navbar,
+        f7NavTitle,
+        f7Link
+    } from 'framework7-vue';
+
+    export default {
+
+        name: 'AboutPage',
+
+        components: {
+            MobileMenuSide,
+            MobileMenuBottom,
+            f7Page,
+            f7Navbar,
+            f7NavTitle,
+            f7Link
+        }
+    }
+    {{/framework7}}
+
+</script>
