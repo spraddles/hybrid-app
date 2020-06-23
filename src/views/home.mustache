@@ -14,10 +14,6 @@
         </f7-navbar>
         <!-- END -->
 
-        <!-- IF_DESKTOP -->
-        <DesktopMenuSide class="if-aurora"></DesktopMenuSide>
-        <!-- END -->
-
         <f7-row>
             <f7-col class="text-align-center">
                 <f7-gauge type="semicircle" :value="0.3" value-text="30%" value-text-color="#f44336" border-color="#f44336"></f7-gauge>
@@ -48,7 +44,6 @@
     {{#framework7}}
     import MobileMenuSide from '../components/mobile-menu-side.vue';
     import MobileMenuBottom from '../components/mobile-menu-bottom.vue';
-    import DesktopMenuSide from '../components/desktop-menu-side.vue';
 
     import {
         f7Page,
@@ -74,7 +69,6 @@
         components: { 
             MobileMenuSide,
             MobileMenuBottom,
-            DesktopMenuSide,
             f7Page,
             f7PageContent,
             f7Navbar,

@@ -11,6 +11,20 @@ import Vue from 'vue';
 	Framework7.use(F7vue);
 	// console error logging
 	console.log(Framework7, F7vue, Vue);
+{{/framework7}}
+
+{{#bootstrap_vue}}
+	import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
+	import "bootstrap/dist/css/bootstrap.min.css";
+	import 'bootstrap-vue/dist/bootstrap-vue.css';
+	import App from './views/app.vue';
+	// init plugins
+	Vue.use(BootstrapVue);
+	Vue.use(IconsPlugin);
+	// console error logging
+	console.log(BootstrapVue);
+{{/bootstrap_vue}}
+
 	// remove nag
 	Vue.config.productionTip = false;
 	// init app
@@ -19,15 +33,6 @@ import Vue from 'vue';
 	    //store,
 	    render: h => h(App)
 	}).$mount('#app')
-{{/framework7}}
-
-{{#bootstrap_vue}}
-	import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-	import 'bootstrap/dist/css/bootstrap.css';
-	import 'bootstrap-vue/dist/bootstrap-vue.css';
-	Vue.use(BootstrapVue);
-	Vue.use(IconsPlugin);
-{{/bootstrap_vue}}
 
 // cordova
 function onLoad() {

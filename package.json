@@ -6,11 +6,9 @@
   "main": "vue/main.js",
   "private": true,
   "scripts": {
-    // test
     "serve_f7": "chmod +x f7-vue-switch.sh && sh f7-vue-switch.sh && vue-cli-service serve",
     "serve_bv": "chmod +x bv-vue-switch.sh && sh bv-vue-switch.sh && vue-cli-service serve",
     "serve": "vue-cli-service serve",
-    // build
     "npm-build": "vue-cli-service build",
     "webpack-develop": "webpack-dev-server --mode development",
     "webpack-build": "webpack --config webpack.config.js --mode production"

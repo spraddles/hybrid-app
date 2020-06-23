@@ -10,5 +10,5 @@ yarn-error.log
 cordova-app
 
 # Mustache
-*/*.vue
+src/*.vue
 src/main.js*

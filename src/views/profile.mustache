@@ -17,10 +17,6 @@
     </f7-navbar>
     <!-- END -->
 
-    <!-- IF_DESKTOP -->
-    <DesktopMenuSide class="if-aurora"></DesktopMenuSide>
-    <!-- END -->
-
     <f7-block>
       <img class="profile-image" src="https://cdn3.iconfinder.com/data/icons/avatars-round-flat/33/avat-01-512.png"></img>
 
@@ -68,7 +64,6 @@
   {{#framework7}}
   import MobileMenuSide from '../components/mobile-menu-side.vue';
   import MobileMenuBottom from '../components/mobile-menu-bottom.vue';
-  import DesktopMenuSide from '../components/desktop-menu-side.vue';
 
   import { 
     f7Page,
@@ -88,7 +83,6 @@
     components: {
       MobileMenuSide,
       MobileMenuBottom,
-      DesktopMenuSide,
       f7Page,
       f7Navbar,
       f7NavTitle,
