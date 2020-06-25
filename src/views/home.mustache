@@ -36,12 +36,62 @@
     </f7-page>
     {{/framework7}}
 
+
+    {{#bootstrap_vue}}
+    <div class="wrapper">
+
+        <!-- Sidebar  -->
+        <nav id="sidebar" class="">
+
+            <b-list-group>
+                <b-list-group-item class="list-group-item-logo active"><h3>[ logo here ]</h3></b-list-group-item>
+                <b-list-group-item class="list-group-item-empty"></b-list-group-item>
+
+                <b-list-group-item to="/"><b-icon-house></b-icon-house>Home</b-list-group-item>
+                <b-list-group-item to="/about"><b-icon-question-circle></b-icon-question-circle>About</b-list-group-item>
+                <b-list-group-item to="/profile"><b-icon-person></b-icon-person>Profile</b-list-group-item>
+                <b-list-group-item to="/login"><b-icon-box-arrow-in-right></b-icon-box-arrow-in-right>Login</b-list-group-item>
+            </b-list-group>
+
+        </nav>
+
+        <!-- Page Content  -->
+        <div id="content">
+            <button type="button" id="sidebarCollapse" onclick="document.getElementById('sidebar').classList.toggle('active');"><b-icon-list></b-icon-list>
+            </button>
+            <h2>Collapsible Sidebar Using Bootstrap 4</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <h2>Lorem Ipsum Dolor</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <h2>Lorem Ipsum Dolor</h2>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+            <h3>Lorem Ipsum Dolor</h3>
+            <p>
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+                consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            </p>
+        </div>
+    </div>
+    {{/bootstrap_vue}}
+
 </template>
 
 
+{{#framework7}}
 <script>
-
-    {{#framework7}}
     import MobileMenuSide from '../components/mobile-menu-side.vue';
     import MobileMenuBottom from '../components/mobile-menu-bottom.vue';
 
@@ -85,8 +135,18 @@
             f7ListItem
         }
     }
-    {{/framework7}}
 </script>
+{{/framework7}}
+
+{{#bootstrap_vue}}
+<script>
+    export default {
+        name: 'HomePage'
+    }
+</script>
+{{/bootstrap_vue}}
+
+
 
 
 {{#framework7}}
@@ -102,3 +162,104 @@
     }
 </style>
 {{/framework7}}
+
+
+{{#bootstrap_vue}}
+<style scoped type="text/css">
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#sidebar {
+    min-width: 220px;
+    max-width: 220px;
+    color: #fff;
+    transition: all 0.3s;
+    border-right: 1px solid rgba(0,0,0,.125) ;
+}
+
+#sidebar.active {
+    margin-left: -220px;
+}
+
+#sidebarCollapse {
+    display: none;
+}
+
+#sidebar .list-group-item.list-group-item-empty {
+    border: none;
+    padding-top: 10px;
+}
+
+#sidebar a.list-group-item {
+    color: #007bff;
+    border: none;
+    font-size: 18px;
+    padding: 15px 25px 15px 35px;
+}
+
+#sidebar a.list-group-item:hover {
+    background-color: #bee5eb;
+    text-decoration: none;
+    color: #fff;
+}
+
+#sidebar .list-group-item.list-group-item-logo {
+    padding: 20px !important;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+    text-align: center;
+}
+
+/* icons */
+#sidebar .b-icon.bi {
+    margin-right: 15px;
+    font-size: 22px;
+    position: relative;
+    top: 1px;
+}
+
+/* ---------------------------------------------------
+    BUTTON
+----------------------------------------------------- */
+#content button#sidebarCollapse {
+    border-radius: 3px;
+    border: 1px solid #bbb;
+    margin-bottom: 20px;
+    height: 40px;
+    width: 45px;
+    font-size: 25px;
+}
+
+/* ---------------------------------------------------
+    CONTENT
+----------------------------------------------------- */
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIA QUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -220px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse {
+        display: initial;
+    }
+}
+</style>
+
+{{/bootstrap_vue}}

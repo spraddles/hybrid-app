@@ -57,11 +57,14 @@
   </f7-page>
   {{/framework7}}
 
+  {{#bootstrap_vue}}
+   <div>MY PROFILE PAGE</div>
+  {{/bootstrap_vue}}
+
 </template>
 
+{{#framework7}}
 <script>
-
-  {{#framework7}}
   import MobileMenuSide from '../components/mobile-menu-side.vue';
   import MobileMenuBottom from '../components/mobile-menu-bottom.vue';
 
@@ -93,8 +96,16 @@
       f7Button
     }
   };
-  {{/framework7}}
 </script>
+{{/framework7}}
+
+{{#bootstrap_vue}}
+<script>
+    export default {
+        name: 'LoginPage'
+    }
+</script>
+{{/bootstrap_vue}}
 
 {{#framework7}}
 <style scoped type="text/css">
