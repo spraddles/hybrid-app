@@ -11,5 +11,6 @@ do
 	    mustache ./_tmp/mustache/f7-mustache.json ./src/views/about.mustache > ./src/views/about.vue
 	    mustache ./_tmp/mustache/f7-mustache.json ./src/views/profile.mustache > ./src/views/profile.vue
 	    mustache ./_tmp/mustache/f7-mustache.json ./src/views/login.mustache > ./src/views/login.vue
+	    mustache ./_tmp/mustache/f7-mustache.json ./src/views/404.mustache > ./src/views/404.vue
 	done
 done

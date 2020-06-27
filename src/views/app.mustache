@@ -27,6 +27,7 @@
     import HomePage from './home.vue';
     import AboutPage from './about.vue';
     import UserProfile from './profile.vue';
+    import PageNotFound from './404.vue';
 
     export default {
 
@@ -55,6 +56,12 @@
                         { path: '/profile', 
                         component: UserProfile, 
                         meta: { bodyClass: 'profile-page' }, 
+                        options: { transition: 'f7-fade' }},
+
+                        { path: '*', 
+                        redirect: '/',
+                        component: PageNotFound, 
+                        meta: { bodyClass: '404-not-found' }, 
                         options: { transition: 'f7-fade' } }
                     ],
                     name: 'My App',
@@ -87,4 +94,107 @@
     }
 </style>
 {{/framework7}}
+
+
+{{#bootstrap_vue}}
+<style type="text/css">
+/* ---------------------------------------------------
+    SIDEBAR STYLE
+----------------------------------------------------- */
+#sidebar {
+    min-width: 220px;
+    max-width: 220px;
+    color: #fff;
+    transition: all 0.3s;
+    border-right: 1px solid rgba(0,0,0,.125) ;
+}
+
+#sidebar.active {
+    margin-left: -220px;
+}
+
+#sidebarCollapse {
+    display: none;
+    color: yellow;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 20px;
+}
+
+#sidebarCollapse svg {
+    font-size: 30px;
+    position: relative;
+    top: 2px;
+    width: 40px;
+    height: 40px;
+    color: #aaa;
+    border-radius: 10px;
+}
+
+#sidebar .list-group-item.list-group-item-empty {
+    border: none;
+    padding-top: 10px;
+}
+
+#sidebar a.list-group-item {
+    color: #007bff;
+    border: none;
+    font-size: 18px;
+    padding: 15px 25px 15px 35px;
+}
+
+#sidebar a.list-group-item:hover {
+    background-color: #bee5eb;
+    text-decoration: none;
+    color: #fff;
+}
+
+#sidebar .list-group-item.list-group-item-logo {
+    padding: 20px !important;
+    border-top-left-radius: unset;
+    border-top-right-radius: unset;
+    text-align: center;
+}
+
+/* icons */
+#sidebar .b-icon.bi {
+    margin-right: 15px;
+    font-size: 22px;
+    position: relative;
+    top: 1px;
+}
+
+/* ---------------------------------------------------
+    CONTENT
+----------------------------------------------------- */
+.wrapper {
+    display: flex;
+    width: 100%;
+    align-items: stretch;
+}
+
+#content {
+    width: 100%;
+    padding: 20px;
+    min-height: 100vh;
+    transition: all 0.3s;
+}
+
+/* ---------------------------------------------------
+    MEDIA QUERIES
+----------------------------------------------------- */
+@media (max-width: 768px) {
+    #sidebar {
+        margin-left: -220px;
+    }
+    #sidebar.active {
+        margin-left: 0;
+    }
+    #sidebarCollapse {
+        display: initial;
+    }
+}
+</style>
+{{/bootstrap_vue}}
 

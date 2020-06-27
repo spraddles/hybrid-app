@@ -1,4 +1,4 @@
-<template id="profile-page">
+<template id="404-not-found-page">
 
   {{#framework7}}
   <!-- Example:
@@ -8,11 +8,11 @@
 
     <!-- IF_MOBILE -->
     <f7-navbar class="if-ios">
-        <f7-nav-title>Profile</f7-nav-title>
+        <f7-nav-title>404</f7-nav-title>
         <f7-link slot="left" icon-f7="bars" panel-open="left"></f7-link>
     </f7-navbar>
     <f7-navbar class="if-md">
-        <f7-nav-title>Profile</f7-nav-title>
+        <f7-nav-title>404</f7-nav-title>
         <f7-link slot="left" icon-f7="bars" panel-open="left"></f7-link>
     </f7-navbar>
     <!-- END -->
@@ -65,29 +65,8 @@
       <b-container>
           <div id="content">
               <button type="button" id="sidebarCollapse" onclick="document.getElementById('sidebar').classList.toggle('active');"><b-icon-list></b-icon-list></button>
-              <h2>Profile</h2>
-              <b-img src="https://www.buckinghamandcompany.com.au/wp-content/uploads/2016/03/profile-placeholder.png" fluid alt="Responsive image"></b-img>
-              <b-row class="row">
-                  <div class="col-12">
-                      <b-form-group
-                          label="First name">
-                          <b-form-input id="input-horizontal" placeholder="John"></b-form-input>
-                      </b-form-group>
-                      <b-form-group
-                          label="Surname">
-                          <b-form-input placeholder="Smith"></b-form-input>
-                      </b-form-group>
-                      <b-form-group
-                          label="D.O.B.">
-                          <b-form-input placeholder="06/05/1983"></b-form-input>
-                      </b-form-group>
-                      <b-form-group
-                          label="Password">
-                          <b-form-input placeholder="********"></b-form-input>
-                      </b-form-group>
-                      <b-button size="lg" variant="primary">Save</b-button>
-                  </div>
-              </b-row>
+              <h2>404 Page not found</h2>
+              SORRY PAGE NOT FOUND!
           </div>
       </b-container>
   </div>
@@ -113,7 +92,7 @@
 
   export default {
 
-    name: "UserProfile",
+    name: "404NotFound",
 
     components: {
       MobileMenuSide,
@@ -137,7 +116,7 @@
     import DesktopMenuSide from '../components/desktop-menu-side.vue';
 
     export default {
-        name: 'UserProfile',
+        name: '404NotFound',
 
         components: { 
             DesktopMenuSide
@@ -149,29 +128,13 @@
 
 {{#framework7}}
 <style scoped type="text/css">
-    img.profile-image {
-      width: 80%;
-      padding: 20px;
-      text-align: center;
-    }
-    .profile-page .page-content .row {
-      margin-top: 20px;
-      margin-bottom: 20px;
-    }
-    .profile-page .page-content .col-33 {
-      font-weight: bold;
-    }
+
 </style>
 {{/framework7}}
 
 
 {{#bootstrap_vue}}
 <style scoped type="text/css">
-  img {
-    border-radius: 50%;
-    height: 200px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-  }
+
 </style>
 {{/bootstrap_vue}}

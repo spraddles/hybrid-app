@@ -18,7 +18,41 @@
   {{/framework7}}
 
   {{#bootstrap_vue}}
-  <div>MY LOGIN PAGE</div>
+  <b-container>
+    <b-form @submit="onSubmit" @reset="onReset" v-if="show" class="login-form">
+
+      <img class="mb-4" src="https://getbootstrap.com/docs/4.5/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+
+      <h4>My App</h4>
+
+      <b-form-group
+      label-for="input-1"
+      >
+        <b-form-input
+        v-model="form.email"
+        type="email"
+        required
+        placeholder="Email"
+        ></b-form-input>
+      </b-form-group>
+
+      <b-form-group
+      label-for="input-2"
+      >
+        <b-form-input
+        v-model="form.password"
+        type="password"
+        required
+        placeholder="Password"
+        ></b-form-input>
+      </b-form-group>
+
+      <b-button type="submit" variant="primary" size="lg" block>Sign in</b-button>
+
+      <p class="mt-5 mb-3 text-muted">© 2017-2020</p>
+
+    </b-form>
+  </b-container>
   {{/bootstrap_vue}}
 
 </template>
@@ -70,13 +104,48 @@
   {{/framework7}}
 </script>
 
+
 {{#bootstrap_vue}}
 <script>
+
     export default {
-        name: 'LoginPage'
+        name: 'LoginPage',
+
+      data() {
+          return {
+            form: {
+          email: '',
+          password: ''
+            },
+            show: true
+          }
+      },
+      methods: {
+          onSubmit(evt) {
+            evt.preventDefault()
+
+            // do something here
+            alert(JSON.stringify(this.form))
+          },
+          onReset(evt) {
+            evt.preventDefault()
+            // Reset our form values
+            this.form.email = ''
+            this.form.password = ''
+            // Trick to reset/clear native browser form validation state
+            this.show = false
+            this.$nextTick(() => {
+                this.show = true
+            })
+        }
     }
+  }
+
 </script>
 {{/bootstrap_vue}}
+
+
+
 
 {{#framework7}}
 <style scoped type="text/css">
@@ -85,3 +154,38 @@
     }
 </style>
 {{/framework7}}
+
+
+{{#bootstrap_vue}}
+<style scoped type="text/css">
+.login-form {
+    text-align: center;
+    width: 100%;
+    max-width: 350px;
+    padding: 15px;
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-form h4 {
+    margin-bottom: 40px;
+}
+
+.login-form input[type="email"] {
+    margin-bottom: -17px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+
+.login-form input[type="password"] {
+    border-top-right-radius: 0;
+    border-top-left-radius: 0;
+    margin-bottom: 30px;
+}
+
+.login-form btn {
+     margin-top: 200px;
+}
+</style>
+{{/bootstrap_vue}}

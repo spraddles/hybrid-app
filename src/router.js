@@ -7,6 +7,7 @@ import LoginPage from './views/login.vue';
 import HomePage from './views/home.vue';
 import AboutPage from './views/about.vue';
 import UserProfile from './views/profile.vue';
+import PageNotFound from './views/404.vue';
 // init plugins
 Vue.use(VueRouter);
 
@@ -33,9 +34,15 @@ export const router = new VueRouter({
 	    { name: "UserProfile",
 	    path: '/profile', 
 	    component: UserProfile, 
-	    meta: { bodyClass: 'profile-page' }}
+	    meta: { bodyClass: 'profile-page' }},
 
 	    // add "page not found" component & route:
 	    // https://code-maze.com/vuejs-routing-navigation/
+
+        { name: "PageNotFound",
+        path: '*', 
+        //redirect: '/',
+        component: PageNotFound, 
+        meta: { bodyClass: '404-not-found' }}
 	]
 });
