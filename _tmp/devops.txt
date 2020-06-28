@@ -1,0 +1,9 @@
+-install mysql (bash command?)
+-create a db (name, UTF-format - bash command?)
+-create a db user (bash command?)
+-update wp-config file / copy over previously created wp-config file (in _tmp/wordpress?)
+
+-(run WP command to connect the DB)
+
+u = wordpress
+p = wordpress
