@@ -1,9 +1,16 @@
+ref: https://wordpress.org/support/article/how-to-install-wordpress/#step-2-create-the-database-and-a-user
+
 -install mysql (bash command?)
 -create a db (name, UTF-format - bash command?)
 -create a db user (bash command?)
 -update wp-config file / copy over previously created wp-config file (in _tmp/wordpress?)
+-add htaccess file in wp root dir (wont work for NGINX, need separate config for this)
 
--(run WP command to connect the DB)
+-file / dir permissions for all WP files / folders (ref: https://kinsta.com/blog/403-forbidden-error/)
+# All folders on your WordPress site should have a file permission of 744 or 755
+# All files on your WordPress site should have a file permission of 644 or 640
+# chmod -R 755 wordpress
 
-u = wordpress
-p = wordpress
+MAMP setting, change default port number, e.g.
+http://localhost:8888/wp-admin/install.php
+

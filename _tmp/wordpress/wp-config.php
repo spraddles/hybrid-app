@@ -65,6 +65,12 @@ define('NONCE_SALT',       'L(7jn?{hTD(=+W5!IN+ud|:,<8IDyr-;9m38vNs*wiGpB6XJvn&}
  */
 $table_prefix = 'wp_';
 
+/*
+define( 'WP_SITEURL',     'http://localhost/' );
+define( 'WP_HOME',        'http://localhost/' );
+*/
+
+
 /**
  * For developers: WordPress debugging mode.
  *
