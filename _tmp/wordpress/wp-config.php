@@ -71,6 +71,13 @@ define( 'WP_HOME',        'http://localhost/' );
 */
 
 
+// JWT setup
+// ref: https://wordpress.org/plugins/jwt-auth/
+define('JWT_AUTH_SECRET_KEY', 'TJT[{SGL2~xp2|)lWmV:.S)hg;nbS87Qp|s_!z=Tq]$OB+5U9');
+define('JWT_AUTH_CORS_ENABLE', true);
+
+
+
 /**
  * For developers: WordPress debugging mode.
  *

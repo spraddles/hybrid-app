@@ -14,3 +14,31 @@ ref: https://wordpress.org/support/article/how-to-install-wordpress/#step-2-crea
 MAMP setting, change default port number, e.g.
 http://localhost:8888/wp-admin/install.php
 
+
+
+LOGINS:
+
+DB:
+u = wordpress
+p = wordpress
+
+WP admin:
+u = wordpress
+e = wordpress@wordpress.com
+p = wordpress
+
+
+JWT:
+https://github.com/Tmeister/wp-api-jwt-auth/issues/62
+
+
+
+Custom WP endpoint:
+https://anchor.host/getting-started-with-axios-and-wordpress/
+(// Custom endpoint for CaptainCore site)
+
+
+
+MAKING REQUESTS WITH AXIOS
+https://www.smashingmagazine.com/2020/06/rest-api-react-fetch-axios/
+

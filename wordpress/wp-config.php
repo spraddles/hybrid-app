@@ -65,6 +65,19 @@ define('NONCE_SALT',       'L(7jn?{hTD(=+W5!IN+ud|:,<8IDyr-;9m38vNs*wiGpB6XJvn&}
  */
 $table_prefix = 'wp_';
 
+/*
+define( 'WP_SITEURL',     'http://localhost/' );
+define( 'WP_HOME',        'http://localhost/' );
+*/
+
+
+// JWT setup
+// ref: https://wordpress.org/plugins/jwt-auth/
+define('JWT_AUTH_SECRET_KEY', 'TJT[{SGL2~xp2|)lWmV:.S)hg;nbS87Qp|s_!z=Tq]$OB+5U9');
+define('JWT_AUTH_CORS_ENABLE', true);
+
+
+
 /**
  * For developers: WordPress debugging mode.
  *
