@@ -1,40 +1,22 @@
-Directory struture:
-
-- node
-	- node_modules
-	- dist
-
-- cordova
-	- hooks
-	- node_modules
-	- plugins
-	- platforms
-	- www
-	- package.json
-	- package-lock.json
-	- config.xml
-
-- src (Vue)
-	- assets
-	- components
-	- helpers
-	- public
-		- index.html
-		- favicon.ico
-	- views
-		- main.vue
-	- main.js
-	
-- myApp
-	- (cordova generated files)
+GOALS:
+to have one app to deploy anywhere (URL, iOS, Android)
+to keep the logic separated from the front end (to make decoupling to a new UI simpler)
+to provide a simple CLI to build & deploy
+to provide a library of common templates (login, post list, post edit, user list, user edit, cpt list, cpt edit)
 
 
-- .gitignore
-- webpack.config.js
-- package.json
-- package-lock.json
+SERVER:
 
 
+BACKEND:
+wordpress
+JWT
 
-To install:
-sudo -i && cd / && cd root && curl -O https://raw.githubusercontent.com/badsprad/testapp/master/_stuff/setup.sh && sh ./setup.sh
+
+FRONTEND:
+vue (frontend)
+framework7 (mobile frontend)
+bootstrap (desktop / responsive frontend)
+router
+vuex (store)
+axios (http client)
