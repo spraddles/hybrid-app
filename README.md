@@ -1,6 +1,6 @@
 GOALS:
 1. to have one app to deploy anywhere (URL, iOS, Android)
-2. to use one simple file to handle config (i.e. variables & URL's)
+2. to use one simple file to handle config (i.e. variables & URL's) & make sure Github [secrets] are used
 3. to keep the logic separated from the front end (to make decoupling to a new UI simpler)
 4. to provide a simple CLI to build & deploy (for all cases, including targeted: e.g. deploy_url, deploy_ios, deploy_android, deploy_all)
 5. to provide a library of common frontend templates (login, post list, post edit, user list, user edit, cpt list, cpt edit)
