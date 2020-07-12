@@ -6,6 +6,7 @@ import Vue from 'vue';
 	import F7vue from 'framework7-vue';
 	import 'framework7-icons';
 	import App from './views/app.vue';
+	import axios from 'axios';
 	//import MaterialIcons from 'material-design-icons/iconfont/material-icons.css';
 	// init plugins
 	Framework7.use(F7vue);
@@ -24,12 +25,12 @@ import Vue from 'vue';
 {{#bootstrap_vue}}
 	// example: https://github.com/alfheild/alacarti/blob/8a8277b7be2f67e17aff22bc13527231d2a8fc9c/resources/assets/js/app.js
 	import { BootstrapVue, IconsPlugin } from 'bootstrap-vue';
-	import "bootstrap/dist/css/bootstrap.min.css";
+	import 'bootstrap/dist/css/bootstrap.min.css';
 	import 'bootstrap-vue/dist/bootstrap-vue.css';
 	import App from './views/app.vue';
 	import { router } from './router.js';
-	import Vuex from 'vuex';
-	import axios from 'axios';
+	import Axios from 'axios';
+	import store from './store.js';
 	// init plugins
 	Vue.use(BootstrapVue);
 	Vue.use(IconsPlugin);
@@ -38,10 +39,17 @@ import Vue from 'vue';
 	console.log(BootstrapVue);
 	// remove nag
 	Vue.config.productionTip = false;
+	// axios
+	Vue.prototype.$http = Axios;
+	// vuex
+	const token = localStorage.getItem('user-token')
+	if (token) {
+	  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+	}
 	// init app
 	new Vue({
 	    router,
-	    //store,
+	    store,
 	    render: h => h(App)
 	}).$mount('#app')
 {{/bootstrap_vue}}

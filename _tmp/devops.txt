@@ -42,3 +42,39 @@ https://anchor.host/getting-started-with-axios-and-wordpress/
 MAKING REQUESTS WITH AXIOS
 https://www.smashingmagazine.com/2020/06/rest-api-react-fetch-axios/
 
+
+Vue.js + Vuex - JWT Authentication Tutorial & Example
+https://jasonwatmore.com/post/2018/07/06/vue-vuex-jwt-authentication-tutorial-example
+
+
+Simple JWT auth
+https://firxworx.com/blog/wordpress/using-the-wordpress-rest-api-with-jwt-authentication/
+https://netmidas.com/blog/wordpress-rest-api-crud-example-with-a-post/
+
+
+VueJS + WP auth example
+https://github.com/fb75/vue-wp-rest-blog
+
+
+
+vue, vuex, axios, WP
+
+
+1) https://github.com/sumit811/vuepress
+-not working
+
+2) https://github.com/fb75/vue-wp-rest-blog
+
+
+
+3) https://github.com/ganeshsreedharan/vue-wordpress-sample-app 
+(uses WP sites)
+
+
+
+
+
+
+
+
+
