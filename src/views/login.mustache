@@ -25,6 +25,8 @@
 
       <h4>My App</h4>
 
+        <b-alert variant="info" show dismissible fade  v-if="login_error">Incorrect username or password</b-alert>
+
       <b-form-group
       label-for="input-1"
       >
@@ -114,16 +116,34 @@
     data() {
         return {
           username: '',
-          password: ''
+          password: '',
+          login_error: false
         }
     },
+
     methods: {
         login: function () {
             let username = this.username
             let password = this.password
+
+            // axios post login & get JWT
             this.$store.dispatch('login', { username, password })
-            .then(() => this.$router.push('/home'))
-            .catch(err => console.log(err))
+
+            // divert to home
+            .then(() => {
+                this.$router.push('/home')
+            })
+
+            // else if error
+            .catch(err =>  {
+                // show alert
+                this.login_error = true;
+                // clear inputs
+                this.username = '';
+                this.password = '';
+                // log to console
+                console.log(err);
+            })
         }
     }
   }
@@ -174,5 +194,11 @@
 .login-form btn {
      margin-top: 200px;
 }
+
+.login-form .alert {
+    font-size: 15px;
+    margin-bottom: 30px;
+}
+
 </style>
 {{/bootstrap_vue}}
