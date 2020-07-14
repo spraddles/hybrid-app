@@ -1,15 +1,18 @@
 .DS_Store
 
 # Node
-dist
-node_modules
+/dist
+/node_modules
 npm-debug.log
 yarn-error.log
 
 # Cordova
-cordova-app
+/cordova-app
 
 # Mustache
-src/main.js*
+/src/main.js*
 *.vue
 !src/components/*.vue
+
+# Wordpress
+/wordpress

@@ -2,6 +2,7 @@
 
 import Vue from 'vue';
 import VueRouter from 'vue-router';
+import store from './store.js'
 // import vue pages
 import LoginPage from './views/login.vue';
 import HomePage from './views/home.vue';
@@ -16,33 +17,65 @@ export const router = new VueRouter({
 //export default new Router({
   	mode: 'history',
 	routes: [
-	    { name: "LoginPage",
-	    path: '/login',
-	    component: LoginPage, 
-	    meta: { bodyClass: 'login-page' }},
 
-	    { name: "HomePage",
-	    path: '/', 
-	    component: HomePage, 
-	    meta: { bodyClass: 'home-page' }},
-
-	    { name: "AboutPage",
-	    path: '/about', 
-	    component: AboutPage, 
-	    meta: { bodyClass: 'about-page' }},
-
-	    { name: "UserProfile",
-	    path: '/profile', 
-	    component: UserProfile, 
-	    meta: { bodyClass: 'profile-page' }},
-
-	    // add "page not found" component & route:
-	    // https://code-maze.com/vuejs-routing-navigation/
-
-        { name: "PageNotFound",
-        path: '*', 
-        //redirect: '/',
-        component: PageNotFound, 
-        meta: { bodyClass: '404-not-found' }}
+	    { 
+	    	name: "LoginPage",
+	    	path: '/login',
+	    	component: LoginPage, 
+	    	meta: { 
+	    		bodyClass: 'login-page' 
+	    	}
+	    },
+	    { 
+	    	name: "HomePage",
+	    	path: '/home',
+	    	component: HomePage, 
+	    	meta: { 
+	    		bodyClass: 'home-page',
+	    		requiresAuth: true 
+	    	},
+	    },
+	    { 
+	    	name: "AboutPage",
+	    	path: '/about',
+	    	component: AboutPage, 
+	    	meta: { 
+	    		bodyClass: 'about-page',
+	    		requiresAuth: true 
+	    	},
+	    },
+	    { 	
+	    	name: "UserProfile",
+	    	path: '/profile', 
+	    	component: UserProfile, 
+	    	meta: { 
+	    		bodyClass: 'profile-page',
+	    		requiresAuth: true 
+	    	},
+	    },
+        { 
+        	name: "PageNotFound",
+        	path: '*',
+        	//redirect: '/',
+        	component: PageNotFound,
+	    	meta: { 
+	    		bodyClass: 'page-not-found',
+	    		requiresAuth: true 
+	    	}
+        }
 	]
 });
+
+router.beforeEach((to, from, next) => {
+  if(to.matched.some(record => record.meta.requiresAuth)) {
+    if (store.getters.isLoggedIn) {
+      next()
+      return
+    }
+    next('/login') 
+  } else {
+    next() 
+  }
+})
+
+

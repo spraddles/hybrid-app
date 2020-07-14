@@ -1,0 +1,80 @@
+ref: https://wordpress.org/support/article/how-to-install-wordpress/#step-2-create-the-database-and-a-user
+
+-install mysql (bash command?)
+-create a db (name, UTF-format - bash command?)
+-create a db user (bash command?)
+-update wp-config file / copy over previously created wp-config file (in _tmp/wordpress?)
+-add htaccess file in wp root dir (wont work for NGINX, need separate config for this)
+
+-file / dir permissions for all WP files / folders (ref: https://kinsta.com/blog/403-forbidden-error/)
+# All folders on your WordPress site should have a file permission of 744 or 755
+# All files on your WordPress site should have a file permission of 644 or 640
+# chmod -R 755 wordpress
+
+MAMP setting, change default port number, e.g.
+http://localhost:8888/wp-admin/install.php
+
+
+
+LOGINS:
+
+DB:
+u = wordpress
+p = wordpress
+
+WP admin:
+u = wordpress
+e = wordpress@wordpress.com
+p = wordpress
+
+
+JWT:
+https://github.com/Tmeister/wp-api-jwt-auth/issues/62
+
+
+
+Custom WP endpoint:
+https://anchor.host/getting-started-with-axios-and-wordpress/
+(// Custom endpoint for CaptainCore site)
+
+
+
+MAKING REQUESTS WITH AXIOS
+https://www.smashingmagazine.com/2020/06/rest-api-react-fetch-axios/
+
+
+Vue.js + Vuex - JWT Authentication Tutorial & Example
+https://jasonwatmore.com/post/2018/07/06/vue-vuex-jwt-authentication-tutorial-example
+
+
+Simple JWT auth
+https://firxworx.com/blog/wordpress/using-the-wordpress-rest-api-with-jwt-authentication/
+https://netmidas.com/blog/wordpress-rest-api-crud-example-with-a-post/
+
+
+VueJS + WP auth example
+https://github.com/fb75/vue-wp-rest-blog
+
+
+
+vue, vuex, axios, WP
+
+
+1) https://github.com/sumit811/vuepress
+-not working
+
+2) https://github.com/fb75/vue-wp-rest-blog
+
+
+
+3) https://github.com/ganeshsreedharan/vue-wordpress-sample-app 
+(uses WP sites)
+
+
+
+
+
+
+
+
+
