@@ -13,3 +13,6 @@ cordova-app
 src/main.js*
 *.vue
 !src/components/*.vue
+
+# Wordpress
+wordpress/*

@@ -19,9 +19,7 @@
 
     import {
         f7Link,
-        f7Toolbar,
-        f7Block,
-        f7Icon,
+        f7Toolbar
     } from 'framework7-vue';
 
     export default {
@@ -30,9 +28,7 @@
 
         components: {
             f7Link,
-            f7Toolbar,
-            f7Block,
-            f7Icon,
+            f7Toolbar
         }
     };
 
