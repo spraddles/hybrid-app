@@ -3,16 +3,33 @@
     <!-- Sidebar  -->
     <nav id="sidebar" class="">
         <b-list-group>
+
             <b-list-group-item class="list-group-item-logo active"><h3>[ logo here ]</h3></b-list-group-item>
+
             <b-list-group-item class="list-group-item-empty"></b-list-group-item>
+
             <b-list-group-item to="/home"><b-icon-house></b-icon-house>Home</b-list-group-item>
+
             <b-list-group-item to="/about"><b-icon-question-circle></b-icon-question-circle>About</b-list-group-item>
+
+            <b-list-group-item to="/posts"><b-icon-puzzle></b-icon-puzzle>Posts</b-list-group-item>
+
             <b-list-group-item to="/profile"><b-icon-person></b-icon-person>Profile</b-list-group-item>
+
             <b-list-group-item to="/#" @click="logout" class="list-group-item list-group-item-action"><b-icon-box-arrow-in-right ></b-icon-box-arrow-in-right>Logout</b-list-group-item>
+
         </b-list-group>
     </nav>
 
 </template>
+
+
+
+
+
+
+
+
 
 
 <script>
@@ -23,11 +40,7 @@
         
         name: 'DesktopMenuSide',
         
-        computed: {
-            isLoggedIn: function() {
-                return this.$store.getters.isLoggedIn
-            }
-        },
+        computed: {},
         
         methods: {
             logout: function() {

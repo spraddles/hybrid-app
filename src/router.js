@@ -7,6 +7,8 @@ import store from './store.js'
 import LoginPage from './views/login.vue';
 import HomePage from './views/home.vue';
 import AboutPage from './views/about.vue';
+import PostsPage from './views/posts.vue';
+import PostPage from './views/post.vue';
 import UserProfile from './views/profile.vue';
 import PageNotFound from './views/404.vue';
 // init plugins
@@ -32,7 +34,7 @@ export const router = new VueRouter({
 	    	meta: { 
 	    		bodyClass: 'home-page',
 	    		requiresAuth: true 
-	    	},
+	    	}
 	    },
 	    { 
 	    	name: "AboutPage",
@@ -41,7 +43,25 @@ export const router = new VueRouter({
 	    	meta: { 
 	    		bodyClass: 'about-page',
 	    		requiresAuth: true 
-	    	},
+	    	}
+	    },
+	    { 
+	    	name: "PostsPage",
+	    	path: '/posts',
+	    	component: PostsPage, 
+	    	meta: { 
+	    		bodyClass: 'posts-page',
+	    		requiresAuth: true 
+	    	}
+	    },
+	    { 
+	    	name: "PostPage",
+	    	path: '/posts/:name',
+	    	component: PostPage, 
+	    	meta: { 
+	    		bodyClass: 'post-page',
+	    		requiresAuth: true 
+	    	}
 	    },
 	    { 	
 	    	name: "UserProfile",
@@ -50,7 +70,7 @@ export const router = new VueRouter({
 	    	meta: { 
 	    		bodyClass: 'profile-page',
 	    		requiresAuth: true 
-	    	},
+	    	}
 	    },
         { 
         	name: "PageNotFound",
