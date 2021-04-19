@@ -16,21 +16,20 @@ POSSIBLE WAYS TO USE THIS REPO:
 
 
 SERVER:
-GCP
+GCP. 
 
 
 BACKEND:
-niodejs
-php
-wordpress
-JWT
+niodejs  
+php  
+wordpress  
+JWT. 
 
 
 FRONTEND:
-vue (frontend)
-framework7 (mobile frontend)
-bootstrap (desktop / responsive frontend)
-router
-vuex (store)
-axios (http client)
-
+vue  (desktop frontend)
+framework7  (mobile frontend)
+bootstrap  (desktop / responsive frontend)
+vue-router  
+vuex  (store)
+axios  (http client)
