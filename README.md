@@ -15,21 +15,26 @@ POSSIBLE WAYS TO USE THIS REPO:
 * build for multi-device & deploy (URL, iOS, Android)
 
 
-SERVER:
-GCP. 
+SERVER:  
+GCP 
 
 
-BACKEND:
+MOBILE:  
+fastlane  
+cordova / phonegap  
+framework7 (mobile frontend)  
+
+
+BACKEND:  
 niodejs  
 php  
 wordpress  
-JWT. 
+JWT  
 
 
-FRONTEND:
-vue  (desktop frontend)
-framework7  (mobile frontend)
-bootstrap  (desktop / responsive frontend)
+FRONTEND:  
+vue  
+bootstrap (desktop / responsive frontend)  
 vue-router  
-vuex  (store)
-axios  (http client)
+vuex (store)  
+axios (http client)
