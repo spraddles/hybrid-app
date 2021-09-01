@@ -1,4 +1,4 @@
-GOALS:
+### Goals
 1. to have one app (i.e. codebase) to deploy anywhere (URL, iOS, Android)
 2. to use one simple file to handle config (i.e. variables & URL's) & make sure Github [secrets] are used
 3. to keep the logic separated from the front end (to make decoupling to a new UI simpler)
@@ -7,34 +7,21 @@ GOALS:
 6. to show some examples of a custom API endpoint & how to bring that into the frontend (e.g. https://anchor.host/getting-started-with-axios-and-wordpress)'
 7. to use JWT tokens & protected routes
 
-
-POSSIBLE WAYS TO USE THIS REPO:
+### Possible ways to use this repo
 
 * build for web URL testing (e.g. Localhost)
 * build for iOS or Android, or both
 * build for multi-device & deploy (URL, iOS, Android)
 
+### Mobile
+- fastlane (deployment) 
+- cordova / phonegap  
+- framework7 
 
-SERVER:  
-GCP 
+### Backend
+- nodejs   
+- wordpress  
 
-
-MOBILE:  
-fastlane  
-cordova / phonegap  
-framework7 (mobile frontend)  
-
-
-BACKEND:  
-niodejs  
-php  
-wordpress  
-JWT  
-
-
-FRONTEND:  
-vue  
-bootstrap (desktop / responsive frontend)  
-vue-router  
-vuex (store)  
-axios (http client)
+### Desktop
+- vue  
+- bootstrap
